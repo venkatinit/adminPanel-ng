@@ -1,0 +1,208 @@
+<div class="container-fluid" id="container-wrapper">
+  <div class="row mb-3">
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-uppercase mb-1">New
+                Investors</div>
+              <div
+                class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{count_details?.today_users}}</div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-users fa-2x text-info"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-uppercase mb-1">month
+                INVESTORS</div>
+              <div
+                class="h5 mb-0 font-weight-bold text-gray-800">{{count_details?.this_month_users}}</div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-users fa-2x text-success"></i>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4" routerLink="/dashboard/list-investors">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-uppercase mb-1">Total
+                Investors</div>
+              <div
+                class="h5 mb-0 font-weight-bold text-gray-800">{{count_details?.total_users}}</div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-users fa-2x text-warning"></i>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div
+                class="text-xs font-weight-bold text-uppercase mb-1">Yesterday
+                Disbursed amount</div>
+              <div
+                class="h5 mb-0 font-weight-bold text-gray-800">{{count_details?.yesterday_payment}}</div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-money fa-2x text-info"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-uppercase mb-1">last
+                month Disbursed amount</div>
+              <div
+                class="h5 mb-0 font-weight-bold text-gray-800">{{count_details?.last_month_payments}}</div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-money fa-2x text-success"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-uppercase mb-1">Total
+                Disbursed amount</div>
+              <div
+                class="h5 mb-0 font-weight-bold text-gray-800">{{count_details?.total_investments}}</div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-money fa-2x text-dark"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4"
+      routerLink="/dashboard/disbursement-list">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div
+                class="text-xs font-weight-bold text-uppercase mb-1">Next
+                Disbursement
+              </div>
+              <div
+                class="h5 mb-0 font-weight-bold text-gray-800">{{count_details?.pending_disburse}}</div>
+            </div>
+            <div class="col-auto">
+              <i class="fa-solid fa-hourglass-half fa-2x text-warning"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4" routerLink="/dashboard/renewal-list">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-uppercase mb-1">Renewals
+                count</div>
+              <div
+                class="h5 mb-0 font-weight-bold text-gray-800">{{count_details?.renewals_count}}</div>
+            </div>
+            <div class="col-auto">
+              <i class="fa-solid fa-diamond fa-2x text-danger"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row " id="new-investor-list">
+      <div class="col-xs-12">
+        <div class="card">
+          <div class="card-header">
+            <strong>New Investor List </strong>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="row g-3">
+                <div class="col-md-12">
+                  <div class="card-header-secondary">
+                  </div>
+                  <div class="card-body">
+                    <table datatable [dtOptions]="dtOptions"
+                      [dtTrigger]="dtTrigger"
+                      class="row-border hover">
+                      <thead>
+                        <tr>
+                          <th>S.No</th>
+                          <th>Full Name</th>
+                          <th>Mobile Number</th>
+                          <th>Account Number</th>
+                          <th>Address</th>
+                          <th>Date Of Investment</th>
+                          <th>Plan Amount</th>
+                          <th>action</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngIf="customers?.length != 0">
+                        <tr *ngFor="let item of customers;let i=index">
+                          <td>{{ i+1 }}</td>
+                          <td>{{ item.FirstName }} {{ item.LastName }} </td>
+                          <td>{{ item.Mobile_Number }}</td>
+                          <td>{{ item.Account_No }}</td>
+                          <td>{{ item.Address }}</td>
+                          <td>{{ item.Date_Of_Investment }}</td>
+                          <td>{{ item.Amount }}</td>
+                          <td>
+                            <button class="btn  btn-sm " type="button"
+                              data-toggle="tooltip" data-placement="top"
+                              (click)="navigateToDetails(item)"
+                              title="Preview"><i
+                                class="fa-solid fa-pen-to-square"></i></button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #loadingTemplate>
+      <div class="loading">
+        <img src="assets/img/1.gif" alt="Loading...">
+      </div>
+    </ng-template>
+
+  </div>
+</div>

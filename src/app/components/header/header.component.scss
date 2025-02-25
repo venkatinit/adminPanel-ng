@@ -1,0 +1,69 @@
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+  pointer-events: none;
+}
+
+.app-brand {
+  margin-left: 30px;
+}
+
+.dropdown {
+  margin-right: 20px;
+}
+
+.dropdown-menu {
+  margin-left: -60px;
+}
+
+.menu-item.active {
+  /* color: #1201a9; */
+  background-color: transparent !important;
+}
+
+// Dropdown List
+.menu-item {
+  padding: 10px 20px;
+}
+
+.menu-item a {
+  width: fit-content;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  /* Remove underline */
+  color: inherit;
+  /* Use inherited color to avoid default link styles */
+}
+
+.menu-link:hover {
+  color: #007bff;
+  /* Optional: Add hover effect */
+}
+
+.menu-dropdown>.menu-sub {
+  padding-left: 20px;
+  display: none;
+}
+
+.menu-dropdown.active>.menu-sub {
+  display: block;
+}
+
+.menu-vertical .menu-inner>.menu-item .menu-link {
+  margin: 0rem 0rem !important;
+}
+
+.menu-vertical .menu-sub .menu-link {
+  padding-left: 0rem !important;
+}
+.active{
+  background-color: #007bff;
+  width: 222px;
+}

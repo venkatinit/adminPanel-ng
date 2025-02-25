@@ -1,0 +1,115 @@
+<div class="row ">
+    <div class="col-xs-12">
+        <div class="card">
+            <div class="card-header" *ngIf="!loading; else loadingTemplate">
+                <span class="d-flex justify-content-between">
+                    <strong>Disbursement List </strong>
+                    <form [formGroup]="disbursements"
+                        (ngSubmit)="getPendingDisbursements()">
+                        <div class="row g-3">
+                            <div class="col-md-5">
+                                <label class="form-label">From Date</label>
+                                <input type="text"
+                                    class="form-control form-control-sm"
+                                    name="from_date" placeholder="YYYY/MM/DD"
+                                    id="from_date"
+                                    formControlName="from_date"
+                                    [ngClass]="{ 'is-invalid': submitted && f.from_date.errors }">
+                                <div
+                                    *ngIf="(submitted || f.from_date.touched) && f.from_date.errors?.required"
+                                    class="invalid-feedback">
+                                    From Date is required
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <label class="form-label">To Date</label>
+                                <input type="text" placeholder="YYYY/MM/DD"
+                                    class="form-control form-control-sm"
+                                    name="to_date"
+                                    id="to_date"
+                                    formControlName="to_date"
+                                    [ngClass]="{ 'is-invalid': submitted && f.to_date.errors }">
+                                <div
+                                    *ngIf="(submitted || f.to_date.touched) && f.to_date.errors?.required"
+                                    class="invalid-feedback">
+                                    To Date is required
+                                </div>
+                            </div>
+                            <div class="modal-footer col-md-2">
+                                <button type="submit"
+                                    class="bg-success text-white rounded save">Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <button class="btn btn-sm bg-success text-white"
+                        type="button"
+                        (click)="exportToExcel()" data-toggle="tooltip"
+                        data-placement="top" title="Export to Excel">
+                        Export to Excel
+                    </button>
+                </span>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <div class="card-header-secondary">
+                            </div>
+                            <div class="card-body">
+                                <table #investorsTable datatable id="example" class="display" style="width:100%"
+                                    [dtOptions]="dtOptions"
+                                    [dtTrigger]="dtTrigger"
+                                    class="row-border hover">
+                                    <thead>
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>Investor Id </th>
+                                            <th>Disbursement Date </th>
+                                            <th>Full Name</th>
+                                            <th>Mobile Number</th>
+                                            <th>Payable Amount</th>
+                                            <th>Account Number</th>
+                                            <th>Bank Name </th>
+                                            <th>IFSC Code</th>
+                                            <th>Branch Name</th>
+                                            <!-- <th>Action</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngIf="investors?.length != 0">
+                                        <tr
+                                            *ngFor="let item of investors;let i=index">
+                                            <td>{{ i+1 }}</td>
+                                            <td>{{item.Investmentor_Id}}</td>
+                                            <td>{{item.Payable_Date}}</td>
+                                            <td>{{ item.FirstName }} {{
+                                                item.LastName }}</td>
+                                            <td>{{ item.Mobile_Number }}</td>
+                                            <td>{{ item.Payable_Amt }}</td>
+                                            <td>{{item.Account_No}}</td>
+                                            <td>{{item.Bank_Name}}</td>
+                                            <td>{{ item.IFSC_Code }}</td>
+                                            <td>{{ item.Branch_Name }}</td>
+                                            <!-- <td>                                                   
+                                                <a
+                                                    class="btn  button-color btn-success text-white btn-sm float-end"
+                                                    (click)="open(item.Disbursement_Id,i)"
+                                                    role="button">Make
+                                                    Payment</a>
+                                            </td> -->
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #loadingTemplate>
+    <div class="loading">
+        <img src="assets/img/1.gif" alt="Loading...">
+    </div>
+</ng-template>

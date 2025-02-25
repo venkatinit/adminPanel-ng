@@ -1,0 +1,59 @@
+<div class="row ">
+    <div class="col-xs-12">
+      <div class="card">
+        <div class="card-header"  >
+          <strong>All Investors </strong>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row g-3">
+              <div class="col-md-12">
+                <div class="card-header-secondary">
+                </div>
+                <div class="card-body">
+                  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                    class="row-border hover">
+                    <thead>
+                      <tr>
+                        <th>S.No</th>
+                        <th>Investor ID</th>
+                        <th>Full Name</th>
+                        <th>Mobile Number</th>
+                        <th>Email</th>
+                        <th>Account Number</th>
+                        <!-- <th>Type Of Investment</th> -->
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngIf="investors?.length != 0">
+                      <tr *ngFor="let item of investors; let i=index">
+                        <td>{{ i+1 }}</td>
+                        <td>{{ item.Investment_ID }}</td> <!-- Display Investor ID -->
+                        <td>{{ item.FirstName }} {{ item.LastName }}</td>
+                        <td>{{ item.Mobile_Number }}</td>
+                        <td>{{ item.Email }}</td>
+                        <td>{{item.Account_No}}</td>
+                        <!-- <td>{{item.}}</td> -->
+                        <td>
+                          <button class="btn btn-sm" type="button"(click)="navigateToDetails(item)"  data-toggle="tooltip" data-placement="top" title="Preview">
+                            <i class="bi bi-eye-fill"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- <ng-template #loadingTemplate>
+    <div class="loading">
+      <img src="assets/img/1.gif" alt="Loading...">
+    </div>
+  </ng-template> -->
+  

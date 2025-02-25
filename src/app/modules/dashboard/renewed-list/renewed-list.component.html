@@ -1,0 +1,208 @@
+<div class="row" *ngIf="!showInvestorDetails">
+    <div class="col-xs-12">
+        <div class="card">
+            <div class="card-header" *ngIf="!loading; else loadingTemplate">
+                <strong>Renewed List</strong>
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-12">
+                        <div class="card-header-secondary"></div>
+                        <div class="card-body">
+                            <table datatable [dtOptions]="dtOptions"
+                                [dtTrigger]="dtTrigger"
+                                class="row-border hover">
+                                <thead>
+                                    <tr>
+                                        <th>S NO</th>
+                                        <th>Full Name</th>
+                                        <th>Investor ID</th>
+                                        <th>Future Plan  </th>
+                                        <th>Renewed Date</th>
+                                        <th>Address</th>
+                                        <th>C_O</th>
+                                        <!-- <th>Action</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody *ngIf="visitors?.length != 0">
+                                    <tr
+                                        *ngFor="let item of visitors; let i = index">
+                                        <td>{{ i+1 }}</td>
+                                        <td>{{ item.FirstName }} {{
+                                            item.LastName }}</td>
+                                        <td>{{ item.Investor_Id }}</td>
+                                        <td>{{ item.Plan_Amount }}</td>
+                                        <td>{{ item.Date_Of_Investment }}</td>
+                                        <td>{{ item.Address }}</td>
+                                        <td>{{ item.C_O }}</td>
+                                        <!-- <td>
+                                            <button class="btn btn-sm"
+                                                type="button"
+                                                (click)="navigateToDetails(item)"
+                                                data-toggle="tooltip"
+                                                title="Preview">
+                                                <i class="bi bi-eye-fill"></i>
+                                            </button>
+                                        </td> -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <ng-template #loadingTemplate>
+                                <div class="loading">
+                                    <img src="assets/img/1.gif"
+                                        alt="Loading...">
+                                </div>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="showInvestorDetails">
+    <div class="row ">
+        <div class="col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Investor Details </strong>
+                    <!-- <button class="btn btn-sm float-end"
+                        (click)="backToList()">Back to List</button> -->
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <div
+                            class=" d-flex flex-row justify-content-between card card1 bg-info px-5 py-3 mt-3 " >
+                            <span> </span>
+                            <span >
+                                &nbsp;
+                                <button (click)="printSheet()"
+                                    class="bg-info px-3 py-1 rounded-pill mt-2">Print
+                                </button>
+                                &nbsp;
+
+                                &nbsp;
+                                <button
+                                    (click)="sendWhatsAppMessage('{{investorInfo?.Mobile_Number}}')"
+                                    class="bg-success px-3 py-1 rounded-pill mt-2">Whatsapp
+                                </button>
+                            </span>
+                        </div>
+                        <div #investorDetails>
+                            <p class="mt-5 text-center"
+                                style="font-weight: 900; font-size: 20px; ">
+                                <span
+                                    style="color: aqua;">N</span> <span
+                                    style="color: orange;">G</span> Info
+                                Solutions
+                            </p>
+                            <p class style="font-weight: 900; ">Investor
+                                Details</p>
+                            <hr>
+                            <div class="d-flex flex-column ">
+                                <div class="details">
+                                    <span class="col-lg-6 text-danger">Investor
+                                        Name</span>
+                                    <span class="col-lg-6 text-danger">{{
+                                        investorInfo?.FirstName | uppercase }}
+                                        {{ investorInfo?.LastName | uppercase
+                                        }}</span>
+                                </div>
+                                <div class="details">
+                                    <span class="col-lg-6 text-danger">Type Of
+                                        Investment</span>
+                                    <span class="col-lg-6 text-danger">RS {{
+                                        investorInfo?.Plan_Amount }} /-</span>
+                                </div>
+                                <!-- <div class="details">
+                                    <span class="col-lg-6 ">
+                                        Investment ID</span>
+                                    <span
+                                        class="col-lg-6  ">{{investorInfo?.investor_Info?.Investment_ID}}</span>
+                                </div> -->
+                                <div class="details">
+                                    <span class="col-lg-6 ">Date Of
+                                        Renew</span>
+                                    <span
+                                        class="col-lg-6  ">{{investorInfo?.Date_Of_Investment }}</span>
+                                </div>
+
+                                <div class="details ">
+                                    <span class="col-lg-6">Mobile Number</span>
+                                    <span
+                                        class="col-lg-6">{{investorInfo?.Mobile_Number}}
+                                    </span>
+                                </div>
+                                <div class="details">
+                                    <span class="col-lg-6">Account Number</span>
+                                    <span
+                                        class="col-lg-6">{{investorInfo?.Account_No}}
+                                    </span>
+                                </div>
+                                <!-- <div class="details">
+                                    <span class="col-lg-6">Bank
+                                        Name</span>
+                                    <span class="col-lg-6">
+                                        {{investorInfo?.Bank_Name}}
+                                    </span>
+                                </div>
+                                <div class="details">
+                                    <span class="col-lg-6"> Branch
+                                        Name</span>
+                                    <span class="col-lg-6">
+                                        {{investorInfo?.Branch_Name}}
+                                    </span>
+                                </div> -->
+                                <div class="details">
+                                    <span class="col-lg-6">IFSC Code</span>
+                                    <span
+                                        class="col-lg-6">{{investorInfo?.IFSC_Code}}</span>
+                                </div>
+                                <div class="details">
+                                    <span class="col-lg-6">Address</span>
+                                    <span class="col-lg-6">
+                                        {{investorInfo?.Address}}</span>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Week</th>
+                                        <!-- <th scope="col">Investment Id</th> -->
+                                        <th scope="col">Principle Amount</th>
+                                        <th scope="col">Interest Amount</th>
+                                        <th scope="col">Total Amount</th>
+                                        <th scope="col">Date</th>
+                                        <!-- <th scope="col">Action</th> -->
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr
+                                        *ngFor="let item of investorInfo?.payments; let i = index">
+                                        <td> {{ i+1 }}</td>
+                                        <!-- <td>{{ item.Investment_ID}}</td> -->
+                                        <td>RS {{ item.Princpial| number:'1.2-2'
+                                            }}/-</td>
+                                        <td>RS {{ item.Interest | number:'1.2-2'
+                                            }}/-</td>
+                                        <td>RS {{ item.Princpial+item.Interest|
+                                            number:'1.2-2'}}/-</td>
+                                        <td> {{ item.Payable_Date }}</td>
+                                        <!-- <td>
+                                            <a
+                                            class="btn button-color btn-success text-white btn-sm "
+                                            (click)="open(item.Disbursement_Id,i)"
+                                            role="button">Make
+                                            Payment</a>
+                                        </td> -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

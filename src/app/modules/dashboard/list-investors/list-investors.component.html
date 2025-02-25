@@ -1,0 +1,74 @@
+<div class="row ">
+  <div class="col-xs-12">
+    <div class="card">
+      <div class="card-header d-flex flex-row justify-content-between ">
+        <strong>{{ statusMapping[selectedStatus] }}</strong>
+        <!-- Dynamic Title -->
+        <div class="col-md-3 d-flex flex-row justify-content-around align-items-center">
+          <span>
+            <button class="btn btn-sm bg-success text-white" type="button" (click)="exportToExcel()" data-toggle="tooltip" data-placement="top" title="Export to Excel">
+              Export to Excel
+            </button>
+          </span>
+          <span>
+            <label for="status">Select Status:</label>
+            <select (change)="onStatusChange()" [(ngModel)]="selectedStatus" class="form-control">
+              <option *ngFor="let item of allStatus" [value]="item.status">{{
+                item.name }}</option>
+            </select>
+          </span>
+        </div>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="row g-3">
+            <div class="col-md-12">
+              <div class="card-header-secondary">
+              </div>
+              <div class="card-body">
+                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table hover">
+                  <thead>
+                    <tr>
+                      <th>S.No</th>
+                      <th>Investor ID</th>
+                      <th>Full Name</th>
+                      <th>Mobile Number</th>
+                      <th>Date of Investment</th>
+                      <th>Plan</th>
+                      <th>C/O</th>
+                      <th>Sub Admin</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of investors; let i=index">
+                      <td>{{ i+1 }}</td>
+                      <td>{{ item.Investor_Id }}</td>
+                      <!-- Display Investor ID -->
+                      <td>{{ item.FirstName }} {{ item.LastName }}</td>
+                      <td>{{ item.Mobile_Number }}</td>
+                      <td>{{ item.Date_Of_Investment }}</td>
+                      <td>{{item.Amount}}</td>
+                      <td>{{item.C_O}}</td>
+                      <td>{{item.Sub_Admin}}</td>
+                      <td>
+                        <button class="btn btn-sm" type="button" (click)="navigateToDetails(item)" data-toggle="tooltip" data-placement="top" title="Preview">
+                          <i class="bi bi-eye-fill"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loadingTemplate>
+  <div class="loading">
+    <img src="assets/img/1.gif" alt="Loading...">
+  </div>
+</ng-template>

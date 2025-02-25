@@ -1,0 +1,44 @@
+.loading {
+    // background-color: rgb(86, 99, 200);
+    color: #1201A9;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loading img {
+    font-size: 50px;
+    animation: spinner 0.9s infinite;
+}
+.loading img {
+    width: 100px;
+    // font-size: 50px;
+    animation: spinner 0.9s infinite;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(-360deg)
+    }
+}
+
+
+.card1{
+    box-shadow: 1px 1px 5px black;
+}
+hr{
+    margin-top: 2px;
+    height: 2px;
+    color: rgb(245, 107, 37);
+}
+.details{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin-bottom: 10px;
+   
+}
+td {
+    text-transform: uppercase; /* Display all text in uppercase */
+  }

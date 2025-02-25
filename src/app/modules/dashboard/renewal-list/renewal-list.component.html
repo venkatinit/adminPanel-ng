@@ -1,0 +1,71 @@
+<div class="row ">
+  <div class="col-xs-12">
+    <div class="card">
+      <div class="card-header " *ngIf="!loading; else loadingTemplate">
+        <span class="d-flex justify-content-between">
+          <strong>Renewal Investors List </strong>
+          <button class="btn btn-sm bg-success text-white"
+            (click)="exportToExcel()" type="button"
+            data-toggle="tooltip"
+            data-placement="top" title="Export to Excel">
+            Export to Excel
+          </button>
+        </span>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="row g-3">
+            <div class="col-md-12">
+              <div class="card-header-secondary">
+              </div>
+              <div class="card-body">
+                <table datatable [dtOptions]="dtOptions"
+                  [dtTrigger]="dtTrigger"
+                  class="row-border hover">
+                  <thead>
+                    <tr>
+                      <th>S.No</th>
+                      <th>Investor ID</th>
+                      <th>Full Name</th>
+                      <th>Mobile Number</th>
+                      <th>Account Number</th>
+                      <th>Type Of Investment</th>
+                      <th>C/O</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngIf="investors?.length != 0">
+                    <tr *ngFor="let item of investors;let i=index">
+                      <td>{{ i+1 }}</td>
+                      <td>{{item.Investmentor_Id}}</td>
+                      <td>{{ item.FirstName }} {{ item.LastName }}</td>
+                      <td>{{ item.Mobile_Number }}</td>
+                      <td>{{ item.Account_No }}</td>
+                      <td>{{ item.Scheme }}</td>
+                      <td>{{ item.C_O }}</td>
+                      <td>
+                        <button
+                          class="btn button-color btn-success text-white btn-sm "
+                          type="button"
+                          (click)="open(item.Investment_Id)"
+                          role="button">
+                          Renew
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <div class="loading">
+    <img src="assets/img/1.gif" alt="Loading...">
+  </div>
+</ng-template>

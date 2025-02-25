@@ -1,0 +1,133 @@
+<div class="row ">
+    <div class="col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                <strong>Update user</strong>
+            </div>
+            <div class="card-body">
+                <div class="container p-3">
+                    <form [formGroup]="makePayments"
+                        (ngSubmit)="savemakePayment()">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label"> Date Of
+                                    Payment</label>
+                                <input type="date"
+                                    class="form-control form-control-sm"
+                                    name="Date_Of_Payment"
+                                    id="Date_Of_Payment"
+                                    formControlName="Date_Of_Payment"
+                                    [ngClass]="{ 'is-invalid': submitted && f.Date_Of_Payment.errors }">
+                                <div
+                                    *ngIf="(submitted || f.Date_Of_Payment.touched) && f.Date_Of_Payment.errors?.required"
+                                    class="invalid-feedback">
+                                    Date Of Payment is required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Mode Of
+                                    Payment</label>
+                                <select type="text"
+                                    class="form-control form-control-sm"
+                                    name="Mode_Of_Payment"
+                                    id="Mode_Of_Payment"
+                                    formControlName="Mode_Of_Payment"
+                                    [ngClass]="{ 'is-invalid': submitted && f.Mode_Of_Payment.errors }"
+                                    autocomplete="off">
+                                    <option value="Phonepe">Phonepe</option>
+                                    <option value="Gpay">Gpay</option>
+                                    <option
+                                        value="Netbanking">Netbanking</option>
+                                    <option value="Paytm">Paytm</option>
+                                    <option value="Cash">Cash</option>
+                                </select>
+
+                                <div
+                                    *ngIf="(submitted || f.Mode_Of_Payment.touched) && f.Mode_Of_Payment.errors?.required"
+                                    class="invalid-feedback">Mode Of Payment
+                                    is required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Transaction Id</label>
+                                <input type="text"
+                                    class="form-control form-control-sm"
+                                    name="Transaction_Id"
+                                    id="Transaction_Id"
+                                    formControlName="Transaction_Id"
+                                    numbersOnly maxlength="20" numbersOnly
+                                    [ngClass]="{ 'is-invalid': submitted && f.Transaction_Id.errors }">
+                                <div
+                                    *ngIf="(submitted || f.Transaction_Id.touched) && f.Transaction_Id.errors?.required"
+                                    class="invalid-feedback">Transaction Id is
+                                    required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Paid Amount</label>
+                                <input type="text"
+                                    class="form-control form-control-sm"
+                                    name="Amount_Paid" id="Amount_Paid"
+                                    formControlName="Amount_Paid" numbersOnly
+                                    [ngClass]="{ 'is-invalid': submitted && f.Amount_Paid.errors }">
+                                <div
+                                    *ngIf="(submitted || f.Amount_Paid.touched) && f.Amount_Paid.errors?.required"
+                                    class="invalid-feedback">Paid Amount is
+                                    required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Attachment</label>
+                                <input type="file"
+                                    class="form-control form-control-sm"
+                                    (change)="onThumbNailFileChange($event)"
+                                    name="Attachment" id="Attachment"
+                                    formControlName="Attachment"
+                                    [ngClass]="{ 'is-invalid': submitted && f.Attachment.errors }">
+                                <div
+                                    *ngIf="(submitted || f.Attachment.touched) && f.Attachment.errors?.required"
+                                    class="invalid-feedback">Attachment is
+                                    required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Paid By</label>
+                                <input type="text"
+                                    class="form-control form-control-sm"
+                                    name="Paid_By"
+                                    id="Paid_By"
+                                    formControlName="Paid_By"
+                                    [ngClass]="{ 'is-invalid': submitted && f.Paid_By.errors }">
+                                <div
+                                    *ngIf="(submitted || f.Paid_By.touched) && f.Paid_By.errors?.required"
+                                    class="invalid-feedback">Paid By is
+                                    required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Is Last Payment</label>
+                                <select class="form-control form-control-sm"
+                                        name="Is_last_payment"
+                                        id="Is_last_payment"
+                                        formControlName="Is_last_payment"
+                                        [ngClass]="{ 'is-invalid': submitted && f.Is_last_payment?.errors }">
+                                    <option value="" disabled selected>Select an option</option>
+                                    <option value="true">True</option>
+                                    <option value="false">False</option>
+                                </select>
+                                <div *ngIf="(submitted || f.Is_last_payment?.touched) && f.Is_last_payment?.errors?.required"
+                                     class="invalid-feedback">Paid By is required
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit"
+                                    class="bg-success text-white rounded">Save
+                                    Payment</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<select class="form-select form-select-sm" [(ngModel)]="investment_Id" (change)="loadCalendar($event)" name="Plan_Id" id="Plan_Id">
+  <option value=" " isSelected>Select a
+    Plan</option>
+  <option *ngFor="let investment of allInvestments" [value]="investment.Id">
+    {{ investment.Investment_Name }} - {{
+    investment.Amount | currency:'INR':true
+    }}
+  </option>
+</select>
+
+
+<app-date-calendar [investmentId]="investment_Id" [noOfSlotsPerDay]="noOfSlotsPerDay" *ngIf="investment_Id>0"></app-date-calendar>

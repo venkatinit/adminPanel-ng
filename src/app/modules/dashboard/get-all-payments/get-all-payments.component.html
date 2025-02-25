@@ -1,0 +1,71 @@
+<div class="row ">
+    <div class="col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                <strong>Payments List</strong>
+                 
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header-secondary">
+                                </div>
+                                <div class="card-body">
+                                    <table datatable [dtOptions]="dtOptions"
+                                        [dtTrigger]="dtTrigger"
+                                        class="row-border hover">
+                                        <thead>
+                                            <tr>
+                                                <th>S.No</th>
+                                                <th>Payment Id</th>
+                                                <th>Date Of Payment</th>
+                                                <th>Type Investment </th>
+                                                <th>Full Name</th>
+                                                <th>Mobile Number</th>
+                                                <th>Plan Amount</th>
+                                                <th>Payable Amount</th>
+                                                <th>Mode of Payment</th>
+                                                <!-- <th>Bank Name </th>
+                                                <th>IFSC Code</th>
+                                                <th>Branch Name</th> -->
+                                                <!-- <th>Action</th> -->
+                                            </tr>
+                                        </thead>
+                                        <tbody *ngIf="investors?.length != 0">
+                                            <tr
+                                                *ngFor="let item of investors;let i=index">
+                                                <td>{{ i+1 }}</td>
+                                                <td>{{item.Payment_No}}</td>
+                                                <td>{{item.Date_Of_Payment}}</td>
+                                                <td>{{item.Investor_Id}}</td>
+                                                <td>{{ item.FirstName }} {{
+                                                    item.LastName }}</td>
+                                                <td>{{ item.Mobile_Number }}</td>
+                                                <td>{{item.Plan_Amount}}</td>
+                                                <td>{{ item.Amount_Paid }}</td>
+                                                <td>{{item.Mode_Of_Payment}}</td>
+                                                <!-- <td>{{item.Bank_Name}}</td>
+                                                <td>{{ item.IFSC_Code }}</td>
+                                                <td>{{ item.Branch_Name }}</td> -->
+                                                <!-- <td>
+                                                    
+                                                    <a
+                                                        class="btn  button-color btn-success text-white btn-sm float-end"
+                                                        (click)="open(item.Disbursement_Id,i)"
+                                                        role="button">Make
+                                                        Payment</a>
+                                                </td> -->
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

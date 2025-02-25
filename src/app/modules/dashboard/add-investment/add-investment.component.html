@@ -1,0 +1,133 @@
+<div class="row ">
+    <div class="col-xs-12">
+        <div class="card">
+            <div class=" modal-header d-flex flex-row justify-content-between">
+                <strong class="modal-title" id="modal-basic-title">Add Investments</strong>
+                <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+            </div>
+            <div class="card-body">
+                <div class="container p-3">
+                    <form [formGroup]="addInvestments" (ngSubmit)="saveaddInvestment()">
+                        <div>
+                            <label class="form-label">Deposit Type</label>
+
+                        </div>
+                        <div>
+                            <label class="form-label">
+                                <input type="radio" formControlName="depositType" value="1" />
+                                Multiple Interest's &nbsp;&nbsp;&nbsp;
+                            </label>
+                            <label class="form-label">
+                                <input type="radio" formControlName="depositType" value="2" />
+                                Fixed Interest
+                            </label> &nbsp;&nbsp;&nbsp;
+
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Investment
+                                    Name</label>
+                                <input type="text" class="form-control form-control-sm" name="investment_Name" id="investment_Name" formControlName="investment_Name" [ngClass]="{ 'is-invalid': submitted && f.investment_Name.errors }">
+                                <div *ngIf="(submitted || f.investment_Name.touched) && f.investment_Name.errors?.required" class="invalid-feedback">
+                                    Investment Name is required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Plan</label>
+                                <input type="text" class="form-control form-control-sm" name="plan" id="plan" formControlName="plan" [ngClass]="{ 'is-invalid': submitted && f.plan.errors }" autocomplete="off" numbersOnly>
+                                <div *ngIf="(submitted || f.plan.touched) && f.plan.errors?.required" class="invalid-feedback">Plan
+                                    is required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Total Interest</label>
+                                <input type="text" class="form-control form-control-sm" name="total_interest" id="total_interest" formControlName="total_interest" numbersOnly maxlength="17"
+                                    [ngClass]="{ 'is-invalid': submitted && f.total_interest.errors }">
+                                <div *ngIf="(submitted || f.total_interest.touched) && f.total_interest.errors?.required" class="invalid-feedback">Total Interest is
+                                    required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Rate of
+                                    Interest</label>
+                                <input type="text" class="form-control form-control-sm" name="rate_of_Int" id="rate_of_Int" formControlName="rate_of_Int" [ngClass]="{ 'is-invalid': submitted && f.rate_of_Int.errors }">
+                                <div *ngIf="(submitted || f.rate_of_Int.touched) && f.rate_of_Int.errors?.required" class="invalid-feedback">Rate of Interest is
+                                    required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Maturity Value</label>
+                                <input type="text" class="form-control form-control-sm" name="maturity_value" id="maturity_value" formControlName="maturity_value" [ngClass]="{ 'is-invalid': submitted && f.maturity_value.errors }">
+                                <div *ngIf="(submitted || f.maturity_value.touched) && f.maturity_value.errors?.required" class="invalid-feedback">Maturity is
+                                    required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Duration In
+                                    Days</label>
+                                <input type="text" class="form-control form-control-sm" name="duration_In_Days" id="duration_In_Days" formControlName="duration_In_Days" [ngClass]="{ 'is-invalid': submitted && f.duration_In_Days.errors }">
+                                <div *ngIf="(submitted || f.duration_In_Days.touched) && f.duration_In_Days.errors?.required" class="invalid-feedback">Duration is
+                                    required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">No of Payments</label>
+                                <input type="text" class="form-control form-control-sm" name="no_of_payments" id="no_of_payments" formControlName="no_of_payments" [ngClass]="{ 'is-invalid': submitted && f.no_of_payments.errors }">
+                                <div *ngIf="(submitted || f.no_of_payments.touched) && f.no_of_payments.errors?.required" class="invalid-feedback">No of Payments
+                                    is required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">EMI</label>
+                                <input type="text" class="form-control form-control-sm" name="emi" id="emi" formControlName="emi" [ngClass]="{ 'is-invalid': submitted && f.emi.errors }" numbersOnly>
+                                <div *ngIf="(submitted || f.emi.touched) && f.emi.errors?.required" class="invalid-feedback">EMI
+                                    is
+                                    required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Payment
+                                    Percentage</label>
+                                <input type="text" class="form-control form-control-sm" name="payment_percentage" id="payment_percentage" formControlName="payment_percentage" [ngClass]="{ 'is-invalid': submitted && f.payment_percentage.errors }"
+                                    numbersOnly>
+                                <div *ngIf="(submitted || f.payment_percentage.touched) && f.payment_percentage.errors?.required" class="invalid-feedback">Payment Percentage
+                                    is
+                                    required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">First Payment
+                                    </label>
+                                <input type="text" class="form-control form-control-sm" name="first_payment" id="first_payment"
+                                    formControlName="first_payment" [ngClass]="{ 'is-invalid': submitted && f.first_payment.errors }"
+                                    numbersOnly>
+                                <div *ngIf="(submitted || f.first_payment.touched) && f.first_payment.errors?.required"
+                                    class="invalid-feedback"> First Payment  
+                                    is
+                                    required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Last Payment
+                                     </label>
+                                <input type="text" class="form-control form-control-sm" name="last_payment" id="last_payment"
+                                    formControlName="last_payment" [ngClass]="{ 'is-invalid': submitted && f.last_payment.errors }"
+                                    numbersOnly>
+                                <div *ngIf="(submitted || f.last_payment.touched) && f.last_payment.errors?.required"
+                                    class="invalid-feedback">Last Payment  
+                                    is
+                                    required
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <!-- <button type="button"
+                                      class="btn btn-outline-dark  me-md-2 btn-sm">Reject</button> -->
+                                <app-save-button [spin]="spinLoader"></app-save-button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

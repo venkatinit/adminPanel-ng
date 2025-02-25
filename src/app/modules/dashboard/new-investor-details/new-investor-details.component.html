@@ -1,0 +1,194 @@
+<div class="row ">
+    <div class="col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                <strong>Investor Details </strong>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <div class=" d-flex flex-row justify-content-between card card1 bg-info px-5 py-3 mt-3 ">
+                        <span>
+                            <h5>{{investorInfo?.FirstName}}
+                                {{investorInfo?.LastName}}</h5>
+                            <h5>{{investorInfo1?.Date_Of_Investment}}</h5>
+                        </span>
+                    </div>
+                    <p class="mt-3">Details</p>
+                    <hr>
+                    <div class="container">
+                        <form [formGroup]="NewInvestorForm" (ngSubmit)="saveNewInvestorForm()">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">First
+                                        Name</label>
+                                    <input type="text" class="form-control form-control-sm" name="name" id="name" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                                    <div *ngIf="(submitted || f.name?.touched) && f.name.errors?.required" class="invalid-feedback">
+                                        Name is required
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Last
+                                        Name</label>
+                                    <input type="text" class="form-control form-control-sm" name="lname" id="lname" formControlName="lname" [ngClass]="{ 'is-invalid': submitted && f.lname.errors }">
+                                    <div *ngIf="(submitted || f.lname.touched) && f.lname.errors?.required" class="invalid-feedback">
+                                        Name is required
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Mobile
+                                        Number</label>
+                                    <input type="text" class="form-control form-control-sm" name="mobile_no" id="mobile_no" formControlName="mobile_no" maxlength="10" [ngClass]="{ 'is-invalid': submitted && f.mobile_no.errors }" autocomplete="off"
+                                        numbersOnly>
+                                    <div *ngIf="(submitted || f.mobile_no.touched) && f.mobile_no.errors?.required" class="invalid-feedback">Mobile Number
+                                        is required
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Bank Account
+                                        Number</label>
+                                    <input type="text" class="form-control form-control-sm" name="bank_account_number" id="bank_account_number" formControlName="bank_account_number" numbersOnly maxlength="17"
+                                        [ngClass]="{ 'is-invalid': submitted && f.bank_account_number.errors }">
+                                    <div *ngIf="(submitted || f.bank_account_number.touched) && f.bank_account_number.errors?.required" class="invalid-feedback">Bank Account
+                                        Number is
+                                        required
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Bank Name</label>
+                                    <input type="text" class="form-control form-control-sm" name="bm_name" id="bank_name" formControlName="bank_name" [ngClass]="{ 'is-invalid': submitted && f.bank_name.errors }">
+                                    <div *ngIf="(submitted || f.bank_name.touched) && f.bank_name.errors?.required" class="invalid-feedback">Bank Name is
+                                        required
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Branch
+                                        Name</label>
+                                    <input type="text" class="form-control form-control-sm" name="bm_name" id="branch_name" formControlName="branch_name" [ngClass]="{ 'is-invalid': submitted && f.branch_name.errors }">
+                                    <div *ngIf="(submitted || f.branch_name.touched) && f.branch_name.errors?.required" class="invalid-feedback">Branch Name is
+                                        required
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">IFSC Code</label>
+                                    <input type="text" class="form-control form-control-sm" name="ifsc_code" id="ifsc_code" formControlName="ifsc_code" [ngClass]="{ 'is-invalid': submitted && f.ifsc_code.errors }">
+                                    <div *ngIf="(submitted || f.ifsc_code.touched) && f.ifsc_code.errors?.required" class="invalid-feedback">IFSC Code is
+                                        required
+                                    </div>
+                                    <div *ngIf="(submitted || f.ifsc_code.touched) && f.ifsc_code.errors?.pattern" class="invalid-feedback">IFSC Code
+                                        Format is
+                                        Invalid
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">C/O</label>
+                                    <input type="text" class="form-control form-control-sm" name="co" id="co" formControlName="co" [ngClass]="{ 'is-invalid': submitted && f.co.errors }">
+                                    <div *ngIf="(submitted || f.co.touched) && f.co.errors?.required" class="invalid-feedback">C/O
+                                        is required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Email</label>
+                                    <input type="text" class="form-control form-control-sm" name="email" id="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                    <div *ngIf="(submitted || f.email.touched) && f.email.errors?.required" class="invalid-feedback">Email
+                                        is required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Investment
+                                        Date</label>
+                                    <input type="text" class="form-control form-control-sm" name="Date_Of_Investment" id="Date_Of_Investment" formControlName="Date_Of_Investment" [ngClass]="{ 'is-invalid': submitted && f.Date_Of_Investment.errors }">
+                                    <div *ngIf="(submitted || f.Date_Of_Investment.touched) && f.Date_Of_Investment.errors?.required" class="invalid-feedback">Investment Date
+                                        is required
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Remainder
+                                        Date</label>
+                                    <input type="date" class="form-control form-control-sm" name="remainder_date" id="remainder_date" formControlName="remainder_date" [ngClass]="{ 'is-invalid': submitted && f.remainder_date.errors }">
+                                    <div *ngIf="(submitted || f.remainder_date.touched) && f.remainder_date.errors?.required" class="invalid-feedback">Remainder Date
+                                        is
+                                        required
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Transaction
+                                        ID</label>
+                                    <input type="text" class="form-control form-control-sm" name="Transaction_Id" id="Transaction_Id" formControlName="Transaction_Id" [ngClass]="{ 'is-invalid': submitted && f.Transaction_Id.errors }">
+                                    <div *ngIf="(submitted || f.Transaction_Id.touched) && f.Transaction_Id.errors?.required" class="invalid-feedback">Transaction ID
+                                        is
+                                        required
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Address</label>
+                                    <textarea type="text" class="form-control form-control-sm" name="address" id="address" formControlName="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }"></textarea>
+                                    <div *ngIf="(submitted || f.address.touched) && f.address.errors?.required" class="invalid-feedback"> Address
+                                        is required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label"> Select a Sub Admin</label>
+                                    <select class="form-select form-select-sm" [(ngModel)]="subAdmin_id" formControlName="subAdmin_id" [ngClass]="{ 'is-invalid': submitted && f.subAdmin_id.errors }">
+                                        <option value=" " isSelected>Select Sub Admin</option>
+                                        <option *ngFor="let subadmin of subAdmins" [value]="subadmin.UserId">
+                                            {{ subadmin.FirstName }} {{
+                                            subadmin.LastName
+                                            }}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="(submitted || f.subAdmin_id.touched) && f.subAdmin_id.errors?.required" class="invalid-feedback">
+                                        Plan Id is required
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Image Attachment Section -->
+                                <div class="col-md-6">
+                                    <label for="Attachment" class="title-color text-capitalize">Attachment</label>
+                                    <label
+                                        style="width: 100%; height: auto; border: 2px solid #ddd; border-radius: 3px; cursor: pointer; text-align: center; overflow: hidden; padding: 5px; margin-top: 5px; margin-bottom: 5px; position: relative; display: flex; align-items: center; margin: auto; justify-content: center; flex-direction: column;">
+                                        <a href="#"
+                                            style="position: absolute !important; right: 3px; top: 3px; display: none; background: transparent; border-radius: 3px; width: 30px; height: 30px; line-height: 30px; text-align: center; text-decoration: none; color: #ff0700;"
+                                            (click)="removeAttachment()">
+                                            <i class="bi bi-trash3"></i>
+                                        </a>
+                                        <input class="form-control-file" style="display: none" name="Attachment" id="Attachment" (change)="onFileSelected($event)" [ngClass]="{ 'is-invalid': submitted && f.Attachment.errors }">
+                                        <img *ngIf="NewInvestorForm.get('Attachment').value" [src]="NewInvestorForm.get('Attachment').value" alt="Attachment" style="max-width: 100%; height: 200px; margin-top: 5px; cursor: pointer;"
+                                            (click)="openModal()">
+                                    </label>
+                                </div>
+
+                                <!-- Modal Structure -->
+                                <div class="modal" style="margin: auto;" [ngClass]="{'show': isModalOpen}" (click)="closeModal($event)">
+                                    <div class="modal-dialog" (click)="$event.stopPropagation()">
+                                        <div class="modal-content mt-5">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Image
+                                                    Preview</h5>
+                                                <button type="button" class="btn-close" aria-label="Close" (click)="closeModal($event)"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img [src]="NewInvestorForm.get('Attachment').value" alt="Attachment" style="width:400px; height: 600px; ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-dark  me-md-2 btn-sm" (click)="rejectInvestor()">Reject</button>
+                                    <button type="button" class="btn btn-success   me-md-2 btn-sm" (click)="acceptInvestor()">Accept</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,193 @@
+<div class="row ">
+    <div class="col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                <strong>Investor Details </strong>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <div class=" d-flex flex-row justify-content-between card card1 bg-info px-5 py-3 mt-3 ">
+                        <span>
+                            <!-- <h5>{{investorInfo?.investor_Info?.FirstName}}
+                                {{investorInfo?.investor_Info?.LastName}}</h5> -->
+                            <!-- <h5>{{}}</h5> -->
+                        </span>
+                        <span>
+                            <!-- <button (click)="callNumber()"
+                                class="bg-info px-3 py-1 rounded-pill mt-2"><i
+                                    class="fa-solid fa-phone"></i>
+                            </button> -->
+                            &nbsp;
+                            <button (click)="Order_details_generatePDF()" class=" px-3 py-1 rounded-pill mt-2 justify-content-between" style="background-color: #f7970f;color: #fff;border-color:#f7970f;font-weight: 700;">Print
+                            </button>
+                            &nbsp;
+
+                            &nbsp;
+                            <button (click)="sendWhatsAppMessage('{{investorInfo?.Mobile_Number}}')" class="bg-success px-3 py-1 rounded-pill mt-2" style="font-weight: 700;">Whatsapp
+                            </button>
+                        </span>
+                    </div>
+                    <div #investorDetails>
+                        <p class="mt-5 text-center" style="font-weight: 900; font-size: 20px; "> <span style="color: aqua;">N</span> <span style="color: orange;">G</span> Info Solutions
+                        </p>
+                        <p class style="font-weight: 900; ">Investor
+                            Details</p>
+                        <!-- <span class="row">
+                            <div class="col-lg-5"></div>
+                            <div
+                                class="col-lg-2 d-flex flex-column justify-content  "><img class="mx-3"
+                                    src="../../../../assets/img/logo.png"
+                                    width="100px" alt><span class style="color: rgb(78, 78, 158); font-size: 15px; font-weight: 900; font-family: poppins;">Info Solutions Pvt.
+                                Ltd</span> </div>
+                            <div class="col-lg-5"></div>
+                        </span> -->
+                        <hr>
+                        <div class="d-flex flex-column ">
+                            <div class="details">
+                                <span class="col-lg-6 text-danger">Investor
+                                    Name</span>
+                                <span class="col-lg-6  text-danger">{{investorInfo?.investor_Info?.FirstName|
+                                    uppercase}}
+                                    {{investorInfo?.investor_Info?.LastName |
+                                    uppercase}}</span>
+                            </div>
+                            <div class="details">
+                                <span class="col-lg-6 text-danger">Type Of
+                                    Investment</span>
+                                <span class="col-lg-6 text-danger">RS
+                                    {{investorInfo?.investment_Details?.Amount}}
+                                    /-</span>
+                            </div>
+                            <div class="details">
+                                <span class="col-lg-6 ">
+                                    Investment ID</span>
+                                <span class="col-lg-6  ">{{investorInfo?.investor_Info?.Investment_ID}}</span>
+                            </div>
+                            <div class="details">
+                                <span class="col-lg-6 ">Type Of
+                                    Investment</span>
+                                <span class="col-lg-6  ">{{investorInfo?.investment_Details?.Investment_Type}}</span>
+                            </div>
+                            <div class="details">
+                                <span class="col-lg-6 ">Date Of
+                                    Investment</span>
+                                <span class="col-lg-6  ">{{investorInfo?.receipttDetails?.Date_Of_Investment}}</span>
+                            </div>
+
+                            <div class="details ">
+                                <span class="col-lg-6">Mobile Number</span>
+                                <span class="col-lg-6">{{investorInfo?.investor_Info?.Mobile_Number}}
+                                </span>
+                            </div>
+                            <div class="details">
+                                <span class="col-lg-6">Account Number</span>
+                                <span class="col-lg-6">{{investorInfo?.investor_Info?.Account_No}}
+                                </span>
+                            </div>
+                            <div class="details">
+                                <span class="col-lg-6">Bank
+                                    Name</span>
+                                <span class="col-lg-6">
+                                    {{investorInfo?.investor_Info?.Bank_Name}}
+                                </span>
+                            </div>
+                            <div class="details">
+                                <span class="col-lg-6"> Branch
+                                    Name</span>
+                                <span class="col-lg-6">
+                                    {{investorInfo?.investor_Info?.Branch_Name}}
+                                </span>
+                            </div>
+                            <div class="details">
+                                <span class="col-lg-6">IFSC Code</span>
+                                <span class="col-lg-6">{{investorInfo?.investor_Info?.IFSC_Code}}</span>
+                            </div>
+                            <div class="details">
+                                <span class="col-lg-6">Address</span>
+                                <span class="col-lg-6">
+                                    {{investorInfo?.investor_Info?.Address}}</span>
+                            </div>
+                        </div>
+                        <table class="table" *ngIf="investorInfo?.investment_Details?.Investment_Type === 'Fixed Interest'">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Week</th>
+                                  
+                                    <th scope="col">Milk Profit</th>
+                                    <!-- <th scope="col">Interest Amount</th> -->
+                                    <th scope="col">Total  </th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of investorInfo?.payments; let i = index">
+                                    <td> {{ i+1 }}</td>
+                                
+                                    <td>RS {{ item.Princpial| number:'1.2-2'
+                                        }}/-</td>
+                                    <!-- <td>RS {{ item.Interest | number:'1.2-2'
+                                        }}/-</td> -->
+                                    <td>RS {{ item.Princpial+item.Interest|
+                                        number:'1.2-2'}}/-</td>
+                                    <td> {{ item.Payable_Date }}</td>
+                                    <td *ngIf="item.Payment_Status === 'Pending'">
+                                        <a class="btn button-color btn-success text-white btn-sm" (click)="open(item.Disbursement_Id, i,(item.Princpial+item.Interest))" role="button">
+                                            Make Payment
+                                        </a>
+                                    </td>
+
+                                    
+                                    <td *ngIf="item.Payment_Status !== 'Pending'">
+                                        <a class="btn button-color btn-success text-white btn-sm disabled" role="button" aria-disabled="true">
+                                            Make Payment
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table" *ngIf="investorInfo?.investment_Details?.Investment_Type !== 'Fixed Interest'">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Week</th>
+                        
+                                    <th scope="col">Principle Amount</th>
+                                    <th scope="col">Interest Amount</th>
+                                    <th scope="col">Total Amount</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of investorInfo?.payments; let i = index">
+                                    <td> {{ i+1 }}</td>
+                        
+                                    <td>RS {{ item.Princpial| number:'1.2-2'
+                                        }}/-</td>
+                                    <td>RS {{ item.Interest | number:'1.2-2'
+                                        }}/-</td>
+                                    <td>RS {{ item.Princpial+item.Interest|
+                                        number:'1.2-2'}}/-</td>
+                                    <td> {{ item.Payable_Date }}</td>
+                                    <td *ngIf="item.Payment_Status === 'Pending'">
+                                        <a class="btn button-color btn-success text-white btn-sm"
+                                            (click)="open(item.Disbursement_Id, i,(item.Princpial+item.Interest))" role="button">
+                                            Make Payment
+                                        </a>
+                                    </td>
+                        
+                        
+                                    <td *ngIf="item.Payment_Status !== 'Pending'">
+                                        <a class="btn button-color btn-success text-white btn-sm disabled" role="button" aria-disabled="true">
+                                            Make Payment
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

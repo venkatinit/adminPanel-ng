@@ -1,0 +1,114 @@
+<div class="row ">
+    <div class="col-xs-12">
+        <div class="card">
+            <div class="modal-header">
+                <strong class="modal-title" id="modal-basic-title">Make
+                    Renewal</strong>
+                <button type="button" class="btn-close" aria-label="Close"
+                    (click)="closeModal()"></button>
+            </div>
+            <div class="card-body">
+                <div class="container p-3">
+                    <form [formGroup]="makeRenewals"
+                        (ngSubmit)="savemakeRenewal($event)">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label"> Select a Plan</label>
+                                <select class="form-select form-select-sm"
+                                    [(ngModel)]="investment_Id"
+                                    (change)="savemakeRenewal($event)"
+                                    name="Plan_Id" id="Plan_Id"
+                                    formControlName="Plan_Id"
+                                    [ngClass]="{ 'is-invalid': submitted && f.Plan_Id.errors }">
+                                    <option value=" " isSelected >Select a
+                                        Plan</option>
+                                    <option
+                                        *ngFor="let investment of allInvestments"
+                                        [value]="investment.Id">
+                                        {{ investment.Investment_Name }} - {{
+                                        investment.Amount | currency:'INR':true
+                                        }}
+                                    </option>
+                                </select>
+                                <div
+                                    *ngIf="(submitted || f.Plan_Id.touched) && f.Plan_Id.errors?.required"
+                                    class="invalid-feedback">
+                                    Plan Id is required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label"> Date Of
+                                    Renew</label>
+                                <input type="date"
+                                    class="form-control form-control-sm"
+                                    name="Date_Of_Renew"
+                                    id="Date_Of_Renew"
+                                    formControlName="Date_Of_Renew"
+                                    [ngClass]="{ 'is-invalid': submitted && f.Date_Of_Renew.errors }">
+                                <div
+                                    *ngIf="(submitted || f.Date_Of_Renew.touched) && f.Date_Of_Renew.errors?.required"
+                                    class="invalid-feedback">
+                                    Date Of Renew is required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Receipt Mode</label>
+                                <select
+                                    class="form-control form-control-sm"
+                                    name="Receipt_Mode"
+                                    id="Receipt_Mode"
+                                    formControlName="Receipt_Mode"
+                                    [ngClass]="{ 'is-invalid': submitted && f.Receipt_Mode.errors }">
+                                    <option value disabled>Select Receipt
+                                        Mode</option>
+                                    <option value="UPI">UPI</option>
+                                    <option value="Cash">Cash</option>
+                                    <option
+                                        value="Netbanking">Netbanking</option>
+                                </select>
+                                <div
+                                    *ngIf="(submitted || f.Receipt_Mode.touched) && f.Receipt_Mode.errors?.required"
+                                    class="invalid-feedback">
+                                    Receipt Mode is required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Transaction Id</label>
+                                <input type="text"
+                                    class="form-control form-control-sm"
+                                    name="Transaction_Id"
+                                    id="Transaction_Id"
+                                    formControlName="Transaction_Id"
+                                    numbersOnly maxlength="20" numbersOnly
+                                    [ngClass]="{ 'is-invalid': submitted && f.Transaction_Id.errors }">
+                                <div
+                                    *ngIf="(submitted || f.Transaction_Id.touched) && f.Transaction_Id.errors?.required"
+                                    class="invalid-feedback">Transaction Id is
+                                    required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Attachment</label>
+                                <input type="file"
+                                    class="form-control form-control-sm"
+                                    (change)="onThumbNailFileChange($event)"
+                                    name="Attachment" id="Attachment"
+                                    formControlName="Attachment"
+                                    [ngClass]="{ 'is-invalid': submitted && f.Attachment.errors }">
+                                <div
+                                    *ngIf="(submitted || f.Attachment.touched) && f.Attachment.errors?.required"
+                                    class="invalid-feedback">Attachment is
+                                    required
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit"
+                                    class="bg-success text-white rounded">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

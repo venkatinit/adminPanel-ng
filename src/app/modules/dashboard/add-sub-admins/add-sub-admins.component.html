@@ -1,0 +1,62 @@
+<div class="row ">
+  <div class="col-xs-12">
+    <div class="card">
+      <div class=" modal-header d-flex flex-row justify-content-between">
+        <strong class="modal-title" id="modal-basic-title">Add
+          Sub Admin</strong>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+      </div>
+      <div class="card-body">
+        <div class="container p-3">
+          <form [formGroup]="addVisitors" (ngSubmit)="saveaddVisitor()">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-control form-control-sm" name="firstName" id="firstName" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                <div *ngIf="(submitted || f.firstName.touched) && f.firstName.errors?.required" class="invalid-feedback">
+                  Visitor Name is required
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control form-control-sm" name="lastName" id="lastName" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                <div *ngIf="(submitted || f.lastName.touched) && f.lastName.errors?.required" class="invalid-feedback">date Of Visit is
+                  required
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">contact No</label>
+                <input type="text" class="form-control form-control-sm" name="mobile_Number" id="mobile_Number" formControlName="mobile_Number" [ngClass]="{ 'is-invalid': submitted && f.mobile_Number.errors }" autocomplete="off" numbersOnly>
+                <div *ngIf="(submitted || f.mobile_Number.touched) && f.mobile_Number.errors?.required" class="invalid-feedback">contact No
+                  is required
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <input type="text" class="form-control form-control-sm" name="email" id="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                <div *ngIf="(submitted || f.email.touched) && f.email.errors?.required" class="invalid-feedback">Email is
+                  required
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">address</label>
+                <input type="text" class="form-control form-control-sm" name="address" id="address" formControlName="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+                <div *ngIf="(submitted || f.address.touched) && f.address.errors?.required" class="invalid-feedback">address is
+                  required
+                </div>
+              </div>
+
+
+              <div class="modal-footer">
+                <!-- <button type="button"
+                                      class="btn btn-outline-dark  me-md-2 btn-sm">Reject</button> -->
+                <app-save-button [spin]="spinLoader"> </app-save-button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

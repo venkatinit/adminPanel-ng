@@ -1,0 +1,158 @@
+<div class="row ">
+    <div class="col-xs-12">
+        <div class="card">
+            <div class=" modal-header d-flex flex-row justify-content-between">
+                <strong class="modal-title" id="modal-basic-title">Add
+                    Visitor</strong>
+                <button type="button" class="btn-close" aria-label="Close"
+                    (click)="closeModal()"></button>
+            </div>
+            <div class="card-body">
+                <div class="container p-3">
+                    <form [formGroup]="addVisitors"
+                        (ngSubmit)="saveaddVisitor()">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Visitor
+                                    Name</label>
+                                <input type="text"
+                                    class="form-control form-control-sm"
+                                    name="visitor_Name"
+                                    id="visitor_Name"
+                                    formControlName="visitor_Name"
+                                    [ngClass]="{ 'is-invalid': submitted && f.visitor_Name.errors }">
+                                <div
+                                    *ngIf="(submitted || f.visitor_Name.touched) && f.visitor_Name.errors?.required"
+                                    class="invalid-feedback">
+                                    Visitor Name is required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">date Of Visit</label>
+                                <input type="date"
+                                    class="form-control form-control-sm"
+                                    name="date_Of_Visit" id="date_Of_Visit"
+                                    formControlName="date_Of_Visit"
+                                    [ngClass]="{ 'is-invalid': submitted && f.date_Of_Visit.errors }">
+                                <div
+                                    *ngIf="(submitted || f.date_Of_Visit.touched) && f.date_Of_Visit.errors?.required"
+                                    class="invalid-feedback">date Of Visit is
+                                    required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">contact No</label>
+                                <input type="text"
+                                    class="form-control form-control-sm"
+                                    name="contact_No"
+                                    id="contact_No"
+                                    formControlName="contact_No"
+                                    [ngClass]="{ 'is-invalid': submitted && f.contact_No.errors }"
+                                    autocomplete="off" numbersOnly>
+                                <div
+                                    *ngIf="(submitted || f.contact_No.touched) && f.contact_No.errors?.required"
+                                    class="invalid-feedback">contact No
+                                    is required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">purpose to
+                                    Visit</label>
+                                <input type="text"
+                                    class="form-control form-control-sm"
+                                    name="purpose_Visit" id="purpose_Visit"
+                                    formControlName="purpose_Visit"
+                                    [ngClass]="{ 'is-invalid': submitted && f.purpose_Visit.errors }">
+                                <div
+                                    *ngIf="(submitted || f.purpose_Visit.touched) && f.purpose_Visit.errors?.required"
+                                    class="invalid-feedback">purpose Visit is
+                                    required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Description</label>
+                                <input type="text"
+                                    class="form-control form-control-sm"
+                                    name="email_ID"
+                                    id="email_ID"
+                                    formControlName="email_ID"
+                                    [ngClass]="{ 'is-invalid': submitted && f.email_ID.errors }">
+                                <div
+                                    *ngIf="(submitted || f.email_ID.touched) && f.email_ID.errors?.required"
+                                    class="invalid-feedback">Description is
+                                    required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">address</label>
+                                <input type="text"
+                                    class="form-control form-control-sm"
+                                    name="address"
+                                    id="address"
+                                    formControlName="address"
+                                    [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+                                <div
+                                    *ngIf="(submitted || f.address.touched) && f.address.errors?.required"
+                                    class="invalid-feedback">address is
+                                    required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Date Of
+                                    Approch</label>
+                                <input type="date"
+                                    class="form-control form-control-sm"
+                                    name="c_O"
+                                    id="c_O"
+                                    formControlName="c_O"
+                                    [ngClass]="{ 'is-invalid': submitted && f.c_O.errors }">
+                                <div
+                                    *ngIf="(submitted || f.c_O.touched) && f.c_O.errors?.required"
+                                    class="invalid-feedback">Approching
+                                    is
+                                    required
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-6">
+                                <label class="form-label">scheme </label>
+                                <input type="text"
+                                    class="form-control form-control-sm"
+                                    name="scheme_Id" id="scheme_Id"
+                                    formControlName="scheme_Id"
+                                    [ngClass]="{ 'is-invalid': submitted && f.scheme_Id.errors }">
+                                <div
+                                    *ngIf="(submitted || f.scheme_Id.touched) && f.scheme_Id.errors?.required"
+                                    class="invalid-feedback">scheme Id
+                                    is required
+                                </div>
+                            </div> -->
+
+                            <!-- <div class="col-md-6">
+                                <label class="form-label">Explained By</label>
+                                <input type="text"
+                                    class="form-control form-control-sm"
+                                    name="created_By"
+                                    id="created_By"
+                                    formControlName="created_By"
+                                    [ngClass]="{ 'is-invalid': submitted && f.created_By.errors }"
+                                     >
+                                <div
+                                    *ngIf="(submitted || f.created_By.touched) && f.created_By.errors?.required"
+                                    class="invalid-feedback">created_By
+                                    is
+                                    required
+                                </div>
+                            </div> -->
+                            <div class="modal-footer">
+                                <!-- <button type="button"
+                                      class="btn btn-outline-dark  me-md-2 btn-sm">Reject</button> -->
+                                <app-save-button
+                                    [spin]="spinLoader"> </app-save-button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

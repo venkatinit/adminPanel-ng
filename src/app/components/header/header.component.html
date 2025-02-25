@@ -1,0 +1,240 @@
+<div class="layout-wrapper layout-content-navbar  ">
+  <div class="layout-container" style="background-color: aliceblue;">
+    <!-- Menu -->
+    <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme " style="background-color: #cff1f8 !important;">
+      <div class="app-brand demo">
+        <a routerLink="/dashboard" class="app-brand-link">
+          <img src="../../../assets/img/logo.png" style="width: 60px; margin-left: 50px;">
+        </a>
+      </div>
+
+      <div class="menu-inner-shadow" style="display: none;"></div>
+
+      <div class="menu-inner py-1">
+        <!-- Dashboard -->
+        <div class="menu-item">
+          <a routerLink="/dashboard" class="menu-link  " style="width: 222px;">
+            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+            <div data-i18n="Layouts">Dashboard</div>
+          </a>
+        </div>
+        <div class="menu-item">
+          <a routerLink="/dashboard/list_sub_admins" class="menu-link  " style="width: 222px;">
+            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+            <div data-i18n="Layouts">Sub Admins</div>
+          </a>
+        </div>
+
+        <!-- NG Investments Dropdown -->
+        <div class="menu-item menu-dropdown" [ngClass]="{'active': isNgInvestmentsOpen}" (click)="toggleNgInvestments()">
+          <a class="menu-link menu-toggle" style="cursor: pointer;   width: 222px;">
+            <i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+            <div data-i18n="Layouts">Investments <i style="margin-left: 10px;  " class="fa-solid fa-angle-down "></i></div>
+          </a>
+
+          <div class="menu-sub" [ngStyle]="{ display: isNgInvestmentsOpen ? 'block' : 'none' }" (click)="stopPropagation($event)">
+            <!-- Visitors -->
+            <div class="menu-item">
+              <a routerLink="/dashboard/visitors" class="menu-link" style="text-decoration: none;">
+                <i class="fa-solid fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                <div data-i18n="Layouts">Visitors</div>
+              </a>
+            </div>
+
+            <!-- Investors -->
+            <div class="menu-item">
+              <a routerLink="/dashboard/list-investors" class="menu-link" style="text-decoration: none;">
+                <i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                <div data-i18n="Layouts">Investors</div>
+              </a>
+            </div>
+
+            <!-- Disbursements -->
+            <div class="menu-item">
+              <a routerLink="/dashboard/disbursement-list" class="menu-link" style="text-decoration: none;">
+                <i class="fa fa-money" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                <div data-i18n="Layouts">Disbursements</div>
+              </a>
+            </div>
+
+            <!-- Renewals -->
+            <div class="menu-item">
+              <a routerLink="/dashboard/renewal-list" class="menu-link" style="text-decoration: none;">
+                <i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                <div data-i18n="Layouts">Renewals</div>
+              </a>
+            </div>
+
+            <!-- Renewed -->
+            <div class="menu-item">
+              <a routerLink="/dashboard/renewed_list" class="menu-link" style="text-decoration: none;">
+                <i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                <div data-i18n="Layouts">Renewed</div>
+              </a>
+            </div>
+
+            <!-- Payments -->
+            <div class="menu-item">
+              <a routerLink="/dashboard/get_all_payments" class="menu-link" style="text-decoration: none;">
+                <i class="fa-solid fa-check-double" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                <div data-i18n="Layouts">Payments</div>
+              </a>
+            </div>
+
+            <!-- Investment Master -->
+            <div class="menu-item">
+              <a routerLink="/dashboard/list-investment" class="menu-link" style="text-decoration: none;">
+                <i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                <div data-i18n="Layouts">Investment Master</div>
+              </a>
+            </div>
+            <!-- Date calender -->
+            <div class="menu-item">
+              <a routerLink="/dashboard/date_picker" class="menu-link" style="text-decoration: none;">
+                <i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                <div data-i18n="Layouts">Date Picker</div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="menu-item menu-dropdown"
+          [ngClass]="{'active': isOtherInvestmentsOpen}"
+          (click)="toggleOtherInvestments()">
+          <a class="menu-link menu-toggle"
+            style="cursor: pointer; text-decoration: none;">
+            <i class="fa-solid fa-hand-holding-dollar"
+              aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+            <div data-i18n="Layouts"> Investments</div>
+          </a>
+
+          <div class="menu-sub"
+            [ngStyle]="{ display: isOtherInvestmentsOpen ? 'block' : 'none' }">
+            <div class="menu-item">
+              <a routerLink="/dashboard/visitors" class="menu-link"
+                style="text-decoration: none;">
+                <i class="fa-solid fa-eye"
+                  aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                <div data-i18n="Layouts">Visitors</div>
+              </a>
+            </div>
+
+            <div class="menu-item">
+              <a routerLink="/dashboard/list-investors" class="menu-link"
+                style="text-decoration: none;">
+                <i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                <div data-i18n="Layouts">Investors</div>
+              </a>
+            </div>
+
+            <div class="menu-item">
+              <a routerLink="/dashboard/disbursement-list" class="menu-link"
+                style="text-decoration: none;">
+                <i class="fa fa-money" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                <div data-i18n="Layouts">Disbursements</div>
+              </a>
+            </div>
+
+            <div class="menu-item">
+              <a routerLink="/dashboard/renewal-list" class="menu-link"
+                style="text-decoration: none;">
+                <i class="fa fa-diamond"
+                  aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                <div data-i18n="Layouts">Renewals</div>
+              </a>
+            </div>
+
+            <div class="menu-item">
+              <a routerLink="/dashboard/renewed_list" class="menu-link"
+                style="text-decoration: none;">
+                <i class="fa-solid fa-hand-holding-dollar"
+                  aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                <div data-i18n="Layouts">Renewed</div>
+              </a>
+            </div>
+
+            <div class="menu-item">
+              <a routerLink="/dashboard/get_all_payments" class="menu-link"
+                style="text-decoration: none;">
+                <i class="fa-solid fa-check-double"
+                  aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                <div data-i18n="Layouts">Payments</div>
+              </a>
+            </div>
+
+            <div class="menu-item">
+              <a routerLink="/dashboard/list-investment" class="menu-link"
+                style="text-decoration: none;">
+                <i class="fa-solid fa-hand-holding-dollar"
+                  aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                <div data-i18n="Layouts">Investment Master</div>
+              </a>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </aside>
+
+    <div class="layout-page">
+      <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
+        <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0   d-xl-none ">
+          <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+            <i class="bx bx-menu bx-sm"></i>
+          </a>
+        </div>
+        <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+          <ul class="navbar-nav flex-row align-items-center ms-auto">
+            <!-- User -->
+            <li class="nav-item navbar-dropdown dropdown-user dropdown">
+              <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                <div class="avatar avatar-online">
+                  <img src="../../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle">
+                </div>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-start">
+                <li>
+                  <a class="dropdown-item" href="pages-account-settings-account.html">
+                    <div class="d-flex">
+                      <div class="flex-shrink-0 me-3">
+                        <div class="avatar avatar-online">
+                          <img src="../../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle">
+                        </div>
+                      </div>
+                      <div class="flex-grow-1" *ngIf="has_user_login">
+                        <span class="fw-semibold d-block">NG Info</span>
+                        <small class="text-muted">Admin</small>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+
+                <li>
+                  <div class="dropdown-divider"></div>
+                </li>
+                <li>
+                  <a class="dropdown-item" (click)="do_logout()" *ngIf="has_user_login">
+                    <i class="bx bx-power-off me-2"></i>
+                    <span class="align-middle">Log Out</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!--/ User -->
+          </ul>
+        </div>
+      </nav>
+      <div class="content-wrapper">
+        <div class="container-fluid flex-grow-1 container-p-y">
+          <router-outlet></router-outlet>
+        </div>
+        <!-- / Content -->
+        <!-- Footer -->
+        <footer class="content-footer footer bg-footer-theme">
+        </footer>
+        <!-- / Footer -->
+        <div class="content-backdrop fade"></div>
+      </div>
+      <!-- Content wrapper -->
+    </div>
+    <!-- / Layout page -->
+  </div>
+</div>

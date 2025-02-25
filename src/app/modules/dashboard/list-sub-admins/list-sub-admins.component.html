@@ -1,0 +1,45 @@
+<div class="row ">
+  <div class="col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        <strong>List Sub Admin</strong>
+        <a class="btn  button-color btn-success text-white btn-sm float-end" (click)="open()" role="button">Add Sub Admin</a>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="row g-3">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header-secondary">
+                </div>
+                <div class="card-body">
+                  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+                    <thead>
+                      <tr>
+                        <th>S.No</th>
+                        <th>Sub Admin Name</th>
+                        <th>Email ID</th>
+                        <th>Mobile No</th>
+                        <th>Action</th>
+
+                      </tr>
+                    </thead>
+                    <tbody *ngIf="investment?.length != 0">
+                      <tr *ngFor="let item of investment;let i=index">
+                        <td>{{ i+1 }}</td>
+                        <td>{{item.FirstName}} {{item.LastName}}</td>
+                        <td>{{item.Email}}</td>
+                        <td>{{item.Mobile_Number}}</td>
+                        <td><button class="btn  btn-sm " (click)="deleteInvestment(item.Id)" type="button" data-toggle="tooltip" data-placement="top" title="Preview"><i class="fa-solid fa-trash"></i></button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
