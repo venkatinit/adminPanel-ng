@@ -2,11 +2,11 @@
   <div class="col-xs-12">
     <div class="card">
       <div class="card-header" *ngIf="!loading; else loadingTemplate">
-        <strong>Visitors List </strong>
+        <strong>Agents List </strong>
         <a
           class="btn  button-color btn-success text-white btn-sm float-end"
           (click)="open()"
-          role="button">Add Visitors</a>
+          role="button">Add Agents</a>
       </div>
       <div class="card-body">
         <div class="row g-3">
@@ -20,11 +20,12 @@
                 <thead>
                   <tr>
                     <th>SN</th>
-                    <th>Investor Name</th>
+                    <th>Agent Name</th>
                     <th>Mobile Number</th>
-                    <th>Purpose</th>
-                    <!-- <th>Created Date</th> -->
-                    <th>Date Of Reaching</th>
+                    <th>Account Number</th>
+                    <th>IFSC Code</th>
+                    <th>Branch</th>
+                    <th>Referral Count</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -35,14 +36,15 @@
                     <td>{{ item.Visitor_Name }}</td>
                     <td>{{ item.Contact_No }}</td>
                     <td>{{ item.Purpose_Visit }}</td>
-                    <!-- <td>{{ item.Created_On }}</td> -->
-                    <td>{{ item.C_O }}</td>
+                    <td>{{ item.Email_ID }}</td>
+                    <td>{{ item.Address}}</td>
+                    <td>{{item.C_O}}</td>
                     <td>
-                      <button class="btn   btn-sm " type="button"
+                      <button class="btn   btn-sm text-success" type="button"
                         (click)="UpdateVisitor(item,item.Id)" role="button"><i
                           class="fa-solid fa-pen-to-square"></i>
                       </button>
-                      <button class="btn  btn-sm " (click)="deleteInvestment(item.Id)" type="button"
+                      <button class="btn  btn-sm text-danger " (click)="deleteInvestment(item.Id)" type="button"
                         data-toggle="tooltip" data-placement="top"
                         title="Preview"><i
                           class="fa-solid fa-trash"></i></button>

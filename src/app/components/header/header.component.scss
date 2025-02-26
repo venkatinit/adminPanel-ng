@@ -26,7 +26,7 @@
 
 // Dropdown List
 .menu-item {
-  padding: 10px 20px;
+  padding: 2px 5px;
 }
 
 .menu-item a {
@@ -57,13 +57,15 @@
 }
 
 .menu-vertical .menu-inner>.menu-item .menu-link {
+  width: 90%;
   margin: 0rem 0rem !important;
 }
 
 .menu-vertical .menu-sub .menu-link {
-  padding-left: 0rem !important;
+  padding-left: 10px !important;
 }
-.active{
+
+.active {
   background-color: #007bff;
   width: 222px;
 }

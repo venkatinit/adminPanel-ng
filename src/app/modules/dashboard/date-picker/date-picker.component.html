@@ -3,9 +3,9 @@
 
   </div>
   <div class="card-body">
-    <div class="row g3">
+    <div class="row">
       <div class="col-md-6">
-        <label for="Plan_Id">Select Investment</label> {{investment_Id}}
+        <label for="Plan_Id">Select Investment</label>
         <select class="form-select form-select-sm" [(ngModel)]="investment_Id" (change)="loadCalendar($event)" name="Plan_Id" id="Plan_Id">
           <option value=" " isSelected>Select a
             Plan</option>

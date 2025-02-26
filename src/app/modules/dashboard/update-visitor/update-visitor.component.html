@@ -4,92 +4,72 @@
             <div class=" modal-header d-flex flex-row justify-content-between">
                 <strong class="modal-title" id="modal-basic-title">Update
                     Visitor</strong>
-                <button type="button" class="btn-close" aria-label="Close"
-                    (click)="closeModal()"></button>
+                <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
             </div>
             <div class="card-body">
                 <div class="container p-3">
-                    <form [formGroup]="updateVisitors"
-                        (ngSubmit)="saveupdateVisitor()">
+                    <form [formGroup]="updateVisitors" (ngSubmit)="saveupdateVisitor()">
                         <div class="row g-3">
                             <div class="col-md-6">
+                                <label class="form-label">Agent Name</label>
+                                <input type="text" class="form-control form-control-sm" formControlName="visitor_Name"
+                                    [(ngModel)]="get_visitor_Name"
+                                    [ngClass]="{ 'is-invalid': submitted && f.visitor_Name.errors }">
+                                <div *ngIf="(submitted || f.visitor_Name.touched) && f.visitor_Name.errors?.required"
+                                    class="invalid-feedback">
+                                    Agent Name is required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                 <label class="form-label">Date of Visit</label>
-                                <input type="text"
-                                    class="form-control form-control-sm  "
-                                    formControlName="date_of_visit"
-                                    [(ngModel)]="get_date_of_Visit"
+                                <input type="text" class="form-control form-control-sm  "
+                                    formControlName="date_of_visit" [(ngModel)]="get_date_of_Visit"
                                     [ngClass]="{ 'is-invalid': submitted && f.date_of_visit.errors }">
-                                <div
-                                    *ngIf="(submitted || f.date_of_visit.touched) && f.date_of_visit.errors?.required"
+                                <div *ngIf="(submitted || f.date_of_visit.touched) && f.date_of_visit.errors?.required"
                                     class="invalid-feedback">
                                     Date of Visit is required
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Visitor Name</label>
-                                <input type="text"
-                                    class="form-control form-control-sm"
-                                    formControlName="visitor_Name"
-                                    [(ngModel)]="get_visitor_Name"
-                                    [ngClass]="{ 'is-invalid': submitted && f.visitor_Name.errors }">
-                                <div
-                                    *ngIf="(submitted || f.visitor_Name.touched) && f.visitor_Name.errors?.required"
-                                    class="invalid-feedback">
-                                    Visitor Name is required
-                                </div>
-                            </div>
+
                             <div class="col-md-6">
                                 <label class="form-label">Contact No</label>
-                                <input type="text"
-                                    class="form-control form-control-sm"
-                                    formControlName="contact_No"
+                                <input type="text" class="form-control form-control-sm" formControlName="contact_No"
                                     [(ngModel)]="get_contact_NO"
                                     [ngClass]="{ 'is-invalid': submitted && f.contact_No.errors }">
-                                <div
-                                    *ngIf="(submitted || f.contact_No.touched) && f.contact_No.errors?.required"
+                                <div *ngIf="(submitted || f.contact_No.touched) && f.contact_No.errors?.required"
                                     class="invalid-feedback">
                                     Contact No is required
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Description</label>
-                                <input type="text"
-                                    class="form-control form-control-sm"
-                                    formControlName="email_ID"
+                                <label class="form-label">IFSC Code</label>
+                                <input type="text" class="form-control form-control-sm" formControlName="email_ID"
                                     [(ngModel)]="get_email_Id"
                                     [ngClass]="{ 'is-invalid': submitted && f.email_ID.errors }">
-                                <div
-                                    *ngIf="(submitted || f.email_ID.touched) && f.email_ID.errors?.required"
+                                <div *ngIf="(submitted || f.email_ID.touched) && f.email_ID.errors?.required"
                                     class="invalid-feedback">
-                                    Description is required
+                                    IFSC is required
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Purpose of
-                                    Visit</label>
-                                <input type="text"
-                                    class="form-control form-control-sm"
-                                    formControlName="purpose_Visit"
+                                <label class="form-label">Account numbrer</label>
+                                <input type="text" class="form-control form-control-sm" formControlName="purpose_Visit"
                                     [(ngModel)]="get_purpose_Visit"
                                     [ngClass]="{ 'is-invalid': submitted && f.purpose_Visit.errors }">
-                                <div
-                                    *ngIf="(submitted || f.purpose_Visit.touched) && f.purpose_Visit.errors?.required"
+                                <div *ngIf="(submitted || f.purpose_Visit.touched) && f.purpose_Visit.errors?.required"
                                     class="invalid-feedback">
-                                    Purpose of Visit is required
+                                    account numbrer is required
                                 </div>
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label">Address</label>
-                                <input type="text"
-                                    class="form-control form-control-sm"
-                                    formControlName="address"
+                                <label class="form-label">Branch</label>
+                                <input type="text" class="form-control form-control-sm" formControlName="address"
                                     [(ngModel)]="get_Address"
                                     [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
-                                <div
-                                    *ngIf="(submitted || f.address.touched) && f.address.errors?.required"
+                                <div *ngIf="(submitted || f.address.touched) && f.address.errors?.required"
                                     class="invalid-feedback">
-                                    Address is required
+                                    Branch is required
                                 </div>
                             </div>
                             <!-- <div class="col-md-6">
@@ -106,25 +86,19 @@
                                 </div>
                             </div> -->
                             <div class="col-md-6">
-                                <label class="form-label">Date Of
-                                    Reaching</label>
-                                <input type="text"
-                                    class="form-control form-control-sm"
-                                    formControlName="dateOfReching"
+                                <label class="form-label">No of Referrals</label>
+                                <input type="text" class="form-control form-control-sm" formControlName="dateOfReching"
                                     [(ngModel)]="get_co"
                                     [ngClass]="{ 'is-invalid': submitted && f.dateOfReching.errors }">
-                                <div
-                                    *ngIf="(submitted || f.dateOfReching.touched) && f.dateOfReching.errors?.required"
+                                <div *ngIf="(submitted || f.dateOfReching.touched) && f.dateOfReching.errors?.required"
                                     class="invalid-feedback">
-                                    Date Of
-                                    Reaching is required
+                                    Refferal count is required
                                 </div>
                             </div>
 
                             <div class="modal-footer">
-                                <button type="submit"
-                                    class="bg-success text-white rounded">Update
-                                    Visitor
+                                <button type="submit" class="bg-success text-white rounded">Update
+
                                 </button>
                             </div>
 

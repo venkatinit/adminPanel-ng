@@ -152,7 +152,7 @@ export class InverstorDetailsComponent {
 
     let docDefinition = {
       pageSize: 'A4',
-      pageMargins: [40, 70, 40, 100],
+      pageMargins: [40, 40, 40, 40],
       background: [
         {
           image: await this.getBase64ImageFromURL("assets/img/logo.png"),
@@ -189,7 +189,7 @@ export class InverstorDetailsComponent {
             body: [
               [
                 {
-                  text: 'Investor Details',
+                  text: 'InvestorDetails',
                   color: '#0f8b89',
                   bold: true,
                   fontSize: 18,
@@ -225,6 +225,20 @@ export class InverstorDetailsComponent {
             // widths: ['10%', '20%', '20%', '25%', '25%'],
              body: body
           }
+        },
+        // Add the two points at the bottom
+        {
+          text: [
+            { text: 'Notes:', bold: true },
+            '\n\n',
+            { text: '1. ', bold: true },
+            'The amount will be credited to your registered bank account, and no modifications can be made once the transaction has been initiated.\n\n',
+            { text: '2. ', bold: true },
+            'If you do not receive the funds by the disbursement date, kindly notify us within one week. Requests submitted after this period cannot be processed.'
+          ],
+          margin: [0, 20, 0, 0], // Add margin for spacing
+          fontSize: 12,
+          color: 'black'
         }
       ],
       styles: {
@@ -238,6 +252,7 @@ export class InverstorDetailsComponent {
           margin: [15, 15, 15, 15]
         }
       },
+      
       defaultStyle: {
         alignment: 'justify'
       }

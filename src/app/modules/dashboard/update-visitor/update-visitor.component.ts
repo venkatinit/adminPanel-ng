@@ -82,7 +82,7 @@ export class UpdateVisitorComponent implements OnInit {
          this.updateVisitors.reset();
         this.submitted = false;
         this.errors = [];
-        this.toast.success('Visitor Updated successfully', 'Success');
+        this.toast.success('Agent Updated successfully', 'Success');
         this.router.navigate(['dashboard/visitors']);
         this.spinLoader = false;
       },

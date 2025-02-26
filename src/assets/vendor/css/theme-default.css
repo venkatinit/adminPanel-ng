@@ -855,18 +855,19 @@ a:hover {
 html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item.open>.menu-link, .layout-menu-hover.layout-menu-collapsed .bg-menu-theme .menu-inner .menu-item.open>.menu-link,
 html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item .menu-link:not(.active):hover,
 .layout-menu-hover.layout-menu-collapsed .bg-menu-theme .menu-inner .menu-item .menu-link:not(.active):hover {
-  background-color: rgb(241, 197, 103) !important;
-  width: 100%;
+  background-color: rgb(118 217 189) !important;
+  width: 90%;
   text-align: center;
 }
 
 .bg-menu-theme .menu-inner .menu-sub>.menu-item.active>.menu-link.menu-toggle {
-  background-color: rgb(227, 72, 10);
+  background-color: rgb(118 217 189);
 }
 
 .Active {
-  background-color: rgb(227, 72, 10);
-
+  background-color: rgb(118 217 189);
+  width: 90%;
+  text-align: center;
 }
 
 .bg-menu-theme .menu-inner .menu-sub>.menu-item.active .menu-icon {
