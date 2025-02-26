@@ -30,7 +30,7 @@ export class NewInvestorDetailsComponent implements OnInit {
   investorInfo: any;
   investorInfo1: any;
   investor_id: any;
-  subAdmin_id: number = 0;
+  subAdmin_id: number = 1;
   thumb_images: string = "../../../../assets/img/";
   message: string | undefined;
   constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private api: ApiService, public toast: ToastrService, public util: UtilsService, public activeModal: NgbActiveModal) { }
@@ -202,7 +202,8 @@ export class NewInvestorDetailsComponent implements OnInit {
     const URL = `admin/verify_user`;
     const body = {
       "user_Id": this.investorInfo.UserId,
-      "status": "reject"
+      "status": "reject",
+      "subAdmin_id": 1,
     }
     this.api.post(URL, body).subscribe(res => (
       {}

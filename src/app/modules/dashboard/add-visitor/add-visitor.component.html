@@ -3,7 +3,7 @@
         <div class="card">
             <div class=" modal-header d-flex flex-row justify-content-between">
                 <strong class="modal-title" id="modal-basic-title">Add
-                    Visitor</strong>
+                    Agent</strong>
                 <button type="button" class="btn-close" aria-label="Close"
                     (click)="closeModal()"></button>
             </div>
@@ -13,7 +13,7 @@
                         (ngSubmit)="saveaddVisitor()">
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <label class="form-label">Visitor
+                                <label class="form-label">Agent
                                     Name</label>
                                 <input type="text"
                                     class="form-control form-control-sm"
@@ -24,7 +24,7 @@
                                 <div
                                     *ngIf="(submitted || f.visitor_Name.touched) && f.visitor_Name.errors?.required"
                                     class="invalid-feedback">
-                                    Visitor Name is required
+                                    Agent Name is required
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -56,8 +56,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">purpose to
-                                    Visit</label>
+                                <label class="form-label">Bank Account NO</label>
                                 <input type="text"
                                     class="form-control form-control-sm"
                                     name="purpose_Visit" id="purpose_Visit"
@@ -65,12 +64,12 @@
                                     [ngClass]="{ 'is-invalid': submitted && f.purpose_Visit.errors }">
                                 <div
                                     *ngIf="(submitted || f.purpose_Visit.touched) && f.purpose_Visit.errors?.required"
-                                    class="invalid-feedback">purpose Visit is
+                                    class="invalid-feedback">Account Number   is
                                     required
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Description</label>
+                                <label class="form-label">IFSC Code</label>
                                 <input type="text"
                                     class="form-control form-control-sm"
                                     name="email_ID"
@@ -79,12 +78,12 @@
                                     [ngClass]="{ 'is-invalid': submitted && f.email_ID.errors }">
                                 <div
                                     *ngIf="(submitted || f.email_ID.touched) && f.email_ID.errors?.required"
-                                    class="invalid-feedback">Description is
+                                    class="invalid-feedback">IFSC is
                                     required
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">address</label>
+                                <label class="form-label">Branch Name</label>
                                 <input type="text"
                                     class="form-control form-control-sm"
                                     name="address"
@@ -93,14 +92,13 @@
                                     [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
                                 <div
                                     *ngIf="(submitted || f.address.touched) && f.address.errors?.required"
-                                    class="invalid-feedback">address is
+                                    class="invalid-feedback">Branch is
                                     required
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Date Of
-                                    Approch</label>
-                                <input type="date"
+                                <label class="form-label">No of Refferals</label>
+                                <input type="text"
                                     class="form-control form-control-sm"
                                     name="c_O"
                                     id="c_O"
@@ -108,7 +106,7 @@
                                     [ngClass]="{ 'is-invalid': submitted && f.c_O.errors }">
                                 <div
                                     *ngIf="(submitted || f.c_O.touched) && f.c_O.errors?.required"
-                                    class="invalid-feedback">Approching
+                                    class="invalid-feedback">Reffearal count
                                     is
                                     required
                                 </div>
@@ -144,10 +142,8 @@
                                 </div>
                             </div> -->
                             <div class="modal-footer">
-                                <!-- <button type="button"
-                                      class="btn btn-outline-dark  me-md-2 btn-sm">Reject</button> -->
-                                <app-save-button
-                                    [spin]="spinLoader"> </app-save-button>
+                                <button type="submit" class="bg-success text-white rounded w-auto">Save
+                                </button>
                             </div>
                         </div>
                     </form>

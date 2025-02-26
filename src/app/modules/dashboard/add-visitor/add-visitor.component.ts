@@ -73,7 +73,7 @@ export class AddVisitorComponent implements OnInit {
         this.addVisitors.reset();
         this.submitted = false;
         this.errors = [];
-        this.toast.success('Visitor added successfully', 'Success');
+        this.toast.success('Agent added successfully', 'Success');
         this.router.navigate(['/dashboard/visitors']);
         this.spinLoader = false;
       },
