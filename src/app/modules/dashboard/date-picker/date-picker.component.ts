@@ -98,8 +98,23 @@ export class DatePickerComponent {
       let dayIndex = firstDay.getDay();
       let daysInMonth = [];
       let i = 0;
-
+      var data = this.allotments[0];
       for (let day = 1; day <= lastDay.getDate(); day++) {
+
+        var days45 = (data['days45'] / 30)
+        var days90 = (data['days90'] / 30)
+        var days180 = (data['days180'] / 30)
+        var days360 = (data['days360'] / 30)
+
+        var newData = this.slots[i].investment_Members[0];
+        if (newData) {
+          newData['days45'] = (days45 - newData['days45']);
+          newData['days90'] = (days90 - newData['days90']);
+          newData['days180'] = (days180 - newData['days180']);
+          newData['days360'] = (days360 - newData['days360']);
+          // this.slots[i] = newData;
+        }
+
         daysInMonth.push({
           date: new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), day),
           slots: this.slots[i]?.investment_Members || [],

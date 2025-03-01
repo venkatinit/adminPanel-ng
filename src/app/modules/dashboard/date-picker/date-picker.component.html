@@ -85,10 +85,16 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of day?.slots">
-                    <th style="color: #196dc6; font-size: 1rem;">{{ item.days45 }}</th>
-                    <th style="color: #196dc6; font-size: 1rem;">{{ item.days90 }}</th>
-                    <th style="color: #196dc6; font-size: 1rem;">{{ item.days180 }}</th>
-                    <th style="color: #196dc6; font-size: 1rem;">{{ item.days360 }}</th>
+                    <th *ngIf="item.days45>0" style="color: #196dc6; font-size: 1rem;">{{ item.days45 }}</th>
+                    <th *ngIf="item.days90>0" style="color: #196dc6; font-size: 1rem;">{{ item.days90 }}</th>
+                    <th *ngIf="item.days180>0" style="color: #196dc6; font-size: 1rem;">{{ item.days180 }}</th>
+                    <th *ngIf="item.days360>0" style="color: #196dc6; font-size: 1rem;">{{ item.days360 }}</th>
+
+                    <th *ngIf="item.days45<=0" style="color: #c61919; font-size: 1rem;">{{ item.days45 }}</th>
+                    <th *ngIf="item.days90<=0" style="color: #c61919; font-size: 1rem;">{{ item.days90 }}</th>
+                    <th *ngIf="item.days180<=0" style="color: #c61919; font-size: 1rem;">{{ item.days180 }}</th>
+                    <th *ngIf="item.days360<=0" style="color: #c61919; font-size: 1rem;">{{ item.days360 }}</th>
+
                   </tr>
 
                 </tbody>
