@@ -105,23 +105,26 @@ export class DatePickerComponent {
         var days90 = Math.round((data['days90'] / 30))
         var days180 = Math.round((data['days180'] / 30))
         var days360 = Math.round((data['days360'] / 30))
-
+        var finalJson = {};
         var newData = this.slots[i].investment_Members[0];
         if (newData) {
-          newData['days45'] = (days45 - newData['days45']);
-          newData['days90'] = (days90 - newData['days90']);
-          newData['days180'] = (days180 - newData['days180']);
-          newData['days360'] = (days360 - newData['days360']);
-          // this.slots[i] = newData;
+          var days_45 = (Number(days45 ?? 0) - Number(newData['days45'] ?? 0))
+          var days_135 = (Number(days90 ?? 0) - Number(newData['days90'] ?? 0))
+          var days_180 = (Number(days180 ?? 0) - Number(newData['days180'] ?? 0))
+          var days_270 = (Number(days360 ?? 0) - Number(newData['days360'] ?? 0))
+
+          //finalJson = { 'days_45': days_45, 'days_135': days_135, 'days_180': days_180, 'days_270': days_270 }
+        } else {
+          console.log("No data found" + i);
         }
 
         daysInMonth.push({
           date: new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), day),
-          slots: this.slots[i]?.investment_Members || [],
+          slots: { 'days_45': days_45, 'days_135': days_135, 'days_180': days_180, 'days_270': days_270 },
         });
         i += 1;
       }
-
+      console.log(daysInMonth)
       let week: any[] = new Array(dayIndex).fill(null);
       daysInMonth.forEach((day) => {
         week.push(day);

@@ -19,9 +19,9 @@
             <tr>
               <th>Title</th>
               <th>Days 45</th>
-              <th>Days 90</th>
+              <th>Days 135</th>
               <th>Days 180</th>
-              <th>Days 360</th>
+              <th>Days 270</th>
             </tr>
           </thead>
           <tbody>
@@ -73,22 +73,23 @@
                   </tr>
                   <tr>
                     <th>45</th>
-                    <th>90</th>
+                    <th>135</th>
                     <th>180</th>
-                    <th>360</th>
+                    <th>270</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of day?.slots">
-                    <td *ngIf="item.days45 > 0" style="color: #196dc6; font-size: 1rem;">{{ item.days45 }}</td>
-                    <td *ngIf="item.days90 > 0" style="color: #196dc6; font-size: 1rem;">{{ item.days90 }}</td>
-                    <td *ngIf="item.days180 > 0" style="color: #196dc6; font-size: 1rem;">{{ item.days180 }}</td>
-                    <td *ngIf="item.days360 > 0" style="color: #196dc6; font-size: 1rem;">{{ item.days360 }}</td>
-
-                    <td *ngIf="item.days45 <= 0" style="color: #c61919; font-size: 1rem;">{{ item.days45 }}</td>
-                    <td *ngIf="item.days90 <= 0" style="color: #c61919; font-size: 1rem;">{{ item.days90 }}</td>
-                    <td *ngIf="item.days180 <= 0" style="color: #c61919; font-size: 1rem;">{{ item.days180 }}</td>
-                    <td *ngIf="item.days360 <= 0" style="color: #c61919; font-size: 1rem;">{{ item.days360 }}</td>
+                  <!-- <tr *ngFor="let item of day?.slots"> -->
+                  <tr>
+                    <td [ngStyle]="{ 'color': day?.slots.days_45 <=0 ? 'red' : 'green', 'font-size': '1rem' }">{{ day?.slots.days_45 }}</td>
+                    <td [ngStyle]="{ 'color': day?.slots.days_135 <= 0 ? 'red' : 'green', 'font-size': '1rem' }">{{ day?.slots.days_135 }}</td>
+                    <td [ngStyle]="{ 'color': day?.slots.days_180 <=0 ? 'red' : 'green', 'font-size': '1rem' }">{{ day?.slots.days_180 }}</td>
+                    <td [ngStyle]="{ 'color': day?.slots.days_270 <=0 ? 'red' : 'green', 'font-size': '1rem' }">{{ day?.slots.days_270 }}</td>
+                    <!--
+                    <td *ngIf="day?.slots.days_45 <= 0" style="color: #c61919; font-size: 1rem;">{{ day?.slots.days_45 }}</td>
+                    <td *ngIf="day?.slots.days_135 <= 0" style="color: #c61919; font-size: 1rem;">{{ day?.slots.days_135 }}</td>
+                    <td *ngIf="day?.slots.days_180 <= 0" style="color: #c61919; font-size: 1rem;">{{ day?.slots.days_180 }}</td>
+                    <td *ngIf="day?.slots.days_270 <= 0" style="color: #c61919; font-size: 1rem;">{{ day?.slots.days_270 }}</td> -->
                   </tr>
                 </tbody>
               </table>
