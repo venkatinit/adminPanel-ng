@@ -27,7 +27,7 @@ export class LoginComponent {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
-      remember_me: ['']
+      remember_me: ['', [Validators.required]]
     })
   }
   onClick() {

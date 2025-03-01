@@ -27,7 +27,7 @@ export class ApiService {
         return this.http.post(this.DOMAIN_URL + url, data);
     }
 
-    public put(url: string): Observable<ApiResponse<any>> {
+    public put(url: string, body: { id: any; group_Name: any; created_At: Date; status: boolean; }): Observable<ApiResponse<any>> {
         return this.http.get<ApiResponse<any>>(this.DOMAIN_URL + url);
     }
     public delete(url: string) {

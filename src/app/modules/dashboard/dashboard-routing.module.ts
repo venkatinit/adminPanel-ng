@@ -18,8 +18,8 @@ import { UpdateVisitorComponent } from './update-visitor/update-visitor.componen
 import { RenewedListComponent } from './renewed-list/renewed-list.component';
 import { MakeRenewalComponent } from './make-renewal/make-renewal.component';
 import { ListSubAdminsComponent } from './list-sub-admins/list-sub-admins.component';
-// import { DateCalenderComponent } from './date-calender/date-calender.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
+import { SlotsCalenderComponent } from './slots-calender/slots-calender.component';
 const routes: Routes = [
   {
     path: '',
@@ -47,9 +47,8 @@ const routes: Routes = [
   { path: 'renewed_list', component: RenewedListComponent },
   { path: 'make_renewel', component: MakeRenewalComponent },
   { path: 'list_sub_admins', component: ListSubAdminsComponent },
-  // { path: 'date_calender', component: DateCalenderComponent },
   { path: 'date_picker', component: DatePickerComponent },
-
+  { path: 'calender_master', component: SlotsCalenderComponent },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)

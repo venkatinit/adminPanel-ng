@@ -7,12 +7,9 @@
       <div class="col-md-6">
         <label for="Plan_Id">Select Investment</label>
         <select class="form-select form-select-sm" [(ngModel)]="investment_Id" (change)="loadCalendar($event)" name="Plan_Id" id="Plan_Id">
-          <option value=" " isSelected>Select a
-            Plan</option>
+          <option value=" " isSelected>Select a Plan</option>
           <option *ngFor="let investment of allInvestments" [value]="investment.Id">
-            {{ investment.Investment_Name }} - {{
-            investment.Amount | currency:'INR':true
-            }}
+            {{ investment.Investment_Name }} - {{ investment.Amount | currency:'INR':true }}
           </option>
         </select>
       </div>
@@ -22,9 +19,9 @@
             <tr>
               <th>Title</th>
               <th>Days 45</th>
-              <th>Days 135</th>
+              <th>Days 90</th>
               <th>Days 180</th>
-              <th>Days 270</th>
+              <th>Days 360</th>
             </tr>
           </thead>
           <tbody>
@@ -66,11 +63,9 @@
           </tr>
           <tr *ngFor="let week of weeks">
             <td *ngFor="let day of week" (click)="selectDate(day)" [class.selected-date]="selectedDate && day && selectedDate.getTime() === day.date.getTime()">
-
               <div *ngIf="day">
                 {{ day.date | date: 'd' }}
               </div>
-
               <table class="table table-bordered" *ngIf="day">
                 <thead>
                   <tr>
@@ -79,29 +74,24 @@
                   <tr>
                     <th>45</th>
                     <th>90</th>
-                    <th>135</th>
-                    <th>270</th>
+                    <th>180</th>
+                    <th>360</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of day?.slots">
-                    <th *ngIf="item.days45>0" style="color: #196dc6; font-size: 1rem;">{{ item.days45 }}</th>
-                    <th *ngIf="item.days90>0" style="color: #196dc6; font-size: 1rem;">{{ item.days90 }}</th>
-                    <th *ngIf="item.days180>0" style="color: #196dc6; font-size: 1rem;">{{ item.days180 }}</th>
-                    <th *ngIf="item.days360>0" style="color: #196dc6; font-size: 1rem;">{{ item.days360 }}</th>
+                    <td *ngIf="item.days45 > 0" style="color: #196dc6; font-size: 1rem;">{{ item.days45 }}</td>
+                    <td *ngIf="item.days90 > 0" style="color: #196dc6; font-size: 1rem;">{{ item.days90 }}</td>
+                    <td *ngIf="item.days180 > 0" style="color: #196dc6; font-size: 1rem;">{{ item.days180 }}</td>
+                    <td *ngIf="item.days360 > 0" style="color: #196dc6; font-size: 1rem;">{{ item.days360 }}</td>
 
-                    <th *ngIf="item.days45<=0" style="color: #c61919; font-size: 1rem;">{{ item.days45 }}</th>
-                    <th *ngIf="item.days90<=0" style="color: #c61919; font-size: 1rem;">{{ item.days90 }}</th>
-                    <th *ngIf="item.days180<=0" style="color: #c61919; font-size: 1rem;">{{ item.days180 }}</th>
-                    <th *ngIf="item.days360<=0" style="color: #c61919; font-size: 1rem;">{{ item.days360 }}</th>
-
+                    <td *ngIf="item.days45 <= 0" style="color: #c61919; font-size: 1rem;">{{ item.days45 }}</td>
+                    <td *ngIf="item.days90 <= 0" style="color: #c61919; font-size: 1rem;">{{ item.days90 }}</td>
+                    <td *ngIf="item.days180 <= 0" style="color: #c61919; font-size: 1rem;">{{ item.days180 }}</td>
+                    <td *ngIf="item.days360 <= 0" style="color: #c61919; font-size: 1rem;">{{ item.days360 }}</td>
                   </tr>
-
                 </tbody>
               </table>
-              <!-- <div class="fare">Count {{ day?.investment_Members?.length>0 ? day?.investment_Members?.length :0 }} </div> -->
-              <!--
-              <div [ngClass]="day?.investment_Members?.length>0 ? 'fare' : 'no_fare' " *ngIf="day?.investment_Members?.length">Count {{ day.slots>0                ?day.slots :0 }} </div> -->
             </td>
           </tr>
         </table>
