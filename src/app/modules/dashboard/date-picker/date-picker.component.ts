@@ -101,10 +101,10 @@ export class DatePickerComponent {
       var data = this.allotments[0];
       for (let day = 1; day <= lastDay.getDate(); day++) {
 
-        var days45 = (data['days45'] / 30)
-        var days90 = (data['days90'] / 30)
-        var days180 = (data['days180'] / 30)
-        var days360 = (data['days360'] / 30)
+        var days45 = Math.round((data['days45'] / 30))
+        var days90 = Math.round((data['days90'] / 30))
+        var days180 = Math.round((data['days180'] / 30))
+        var days360 = Math.round((data['days360'] / 30))
 
         var newData = this.slots[i].investment_Members[0];
         if (newData) {
