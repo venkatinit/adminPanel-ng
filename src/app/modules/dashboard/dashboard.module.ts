@@ -5,10 +5,8 @@ import { RouterModule } from '@angular/router';
 import { DataTablesModule } from 'angular-datatables';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module/shared-module.module';
-
 import { HomeComponent } from './home/home.component';
 import { ListInvestorsComponent } from './list-investors/list-investors.component';
 import { InverstorDetailsComponent } from './inverstor-details/inverstor-details.component';
@@ -28,9 +26,9 @@ import { RenewedListComponent } from './renewed-list/renewed-list.component';
 import { MakeRenewalComponent } from './make-renewal/make-renewal.component';
 import { AddSubAdminsComponent } from './add-sub-admins/add-sub-admins.component';
 import { ListSubAdminsComponent } from './list-sub-admins/list-sub-admins.component';
-import { DateCalenderComponent } from './date-calender/date-calender.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { DateCalendarComponent } from './date-calendar/date-calendar.component';
+import { SlotsCalenderComponent } from './slots-calender/slots-calender.component';
 
 @NgModule({
   declarations: [
@@ -53,9 +51,9 @@ import { DateCalendarComponent } from './date-calendar/date-calendar.component';
     MakeRenewalComponent,
     AddSubAdminsComponent,
     ListSubAdminsComponent,
-    DateCalenderComponent,
     DatePickerComponent,
     DateCalendarComponent,
+    SlotsCalenderComponent,
   ],
   imports: [
     CommonModule,

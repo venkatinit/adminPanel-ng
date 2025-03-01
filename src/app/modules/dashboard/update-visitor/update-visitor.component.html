@@ -11,6 +11,16 @@
                     <form [formGroup]="updateVisitors" (ngSubmit)="saveupdateVisitor()">
                         <div class="row g-3">
                             <div class="col-md-6">
+                                <label class="form-label">Date  </label>
+                                <input type="text" class="form-control form-control-sm  "
+                                    formControlName="date_of_visit" [(ngModel)]="get_date_of_Visit"
+                                    [ngClass]="{ 'is-invalid': submitted && f.date_of_visit.errors }">
+                                <div *ngIf="(submitted || f.date_of_visit.touched) && f.date_of_visit.errors?.required"
+                                    class="invalid-feedback">
+                                    Date   is required
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                 <label class="form-label">Agent Name</label>
                                 <input type="text" class="form-control form-control-sm" formControlName="visitor_Name"
                                     [(ngModel)]="get_visitor_Name"
@@ -20,16 +30,7 @@
                                     Agent Name is required
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Date of Visit</label>
-                                <input type="text" class="form-control form-control-sm  "
-                                    formControlName="date_of_visit" [(ngModel)]="get_date_of_Visit"
-                                    [ngClass]="{ 'is-invalid': submitted && f.date_of_visit.errors }">
-                                <div *ngIf="(submitted || f.date_of_visit.touched) && f.date_of_visit.errors?.required"
-                                    class="invalid-feedback">
-                                    Date of Visit is required
-                                </div>
-                            </div>
+
 
                             <div class="col-md-6">
                                 <label class="form-label">Contact No</label>
@@ -52,13 +53,13 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Account numbrer</label>
+                                <label class="form-label">Account number</label>
                                 <input type="text" class="form-control form-control-sm" formControlName="purpose_Visit"
                                     [(ngModel)]="get_purpose_Visit"
                                     [ngClass]="{ 'is-invalid': submitted && f.purpose_Visit.errors }">
                                 <div *ngIf="(submitted || f.purpose_Visit.touched) && f.purpose_Visit.errors?.required"
                                     class="invalid-feedback">
-                                    account numbrer is required
+                                    account number is required
                                 </div>
                             </div>
 
@@ -86,13 +87,13 @@
                                 </div>
                             </div> -->
                             <div class="col-md-6">
-                                <label class="form-label">No of Referrals</label>
+                                <label class="form-label"> Referrals ID's</label>
                                 <input type="text" class="form-control form-control-sm" formControlName="dateOfReching"
                                     [(ngModel)]="get_co"
                                     [ngClass]="{ 'is-invalid': submitted && f.dateOfReching.errors }">
                                 <div *ngIf="(submitted || f.dateOfReching.touched) && f.dateOfReching.errors?.required"
                                     class="invalid-feedback">
-                                    Refferal count is required
+                                    Refferal is required
                                 </div>
                             </div>
 

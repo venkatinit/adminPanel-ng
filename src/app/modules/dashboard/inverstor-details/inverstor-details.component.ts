@@ -234,7 +234,11 @@ export class InverstorDetailsComponent {
             { text: '1. ', bold: true },
             'The amount will be credited to your registered bank account, and no modifications can be made once the transaction has been initiated.\n\n',
             { text: '2. ', bold: true },
-            'If you do not receive the funds by the disbursement date, kindly notify us within one week. Requests submitted after this period cannot be processed.'
+            'If you do not receive the funds by the disbursement date, kindly notify us within one week. Requests submitted after this period cannot be processed.\n\n',
+            { text: '3. ', bold: true },
+            'We are unable to disclose any investor details except to the agent associated with that specific investor.',
+            
+
           ],
           margin: [0, 20, 0, 0], // Add margin for spacing
           fontSize: 12,

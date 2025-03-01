@@ -1,14 +1,118 @@
-<!-- <select class="form-select form-select-sm" [(ngModel)]="investment_Id" (change)="loadCalendar($event)" name="Plan_Id" id="Plan_Id">
-  <option value=" " isSelected>Select a
-    Plan</option>
-  <option *ngFor="let investment of allInvestments" [value]="investment.Id">
-    {{ investment.Investment_Name }} - {{
-    investment.Amount | currency:'INR':true
-    }}
-  </option>
-</select>
+<div class="card">
+  <div class="calendar-header">
 
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="Plan_Id">Select Investment</label>
+        <select class="form-select form-select-sm" [(ngModel)]="investment_Id" (change)="loadCalendar($event)"
+          name="Plan_Id" id="Plan_Id">
+          <option value=" " isSelected>Select a
+            Plan</option>
+          <option *ngFor="let investment of allInvestments" [value]="investment.Id">
+            {{ investment.Investment_Name }} - {{
+            investment.Amount | currency:'INR':true
+            }}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Days 45</th>
+              <th>Days 90</th>
+              <th>Days 180</th>
+              <th>Days 360</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of allotments">
+              <td>{{ item.title }}</td>
+              <td>{{ item.days45 }}</td>
+              <td>{{ item.days90 }}</td>
+              <td>{{ item.days180 }}</td>
+              <td>{{ item.days360 }}</td>
+            </tr>
+            <tr *ngFor="let item of mergedData">
+              <td>{{ item.title }}</td>
+              <td>{{ item.days45 }}</td>
+              <td>{{ item.days90 }}</td>
+              <td>{{ item.days180 }}</td>
+              <td>{{ item.days360 }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-<app-date-calendar [investmentId]="investment_Id" [noOfSlotsPerDay]="noOfSlotsPerDay" *ngIf="investment_Id>0"></app-date-calendar> -->
- 
-<img  src="assets/img/icons/brands/under-development.png" alt="Girl in a jacket"  >
+    <div class="row g3">
+      <div class="calendar-container">
+        <div class="calendar-header">
+          <button class="btn btn-sm btn-outline-primary" (click)="prevMonth()">‹</button>
+          <span>{{ currentDate | date: 'MMMM, yyyy' }}</span>
+          <button class="btn btn-sm btn-outline-primary" (click)="nextMonth()">›</button>
+        </div>
+        <table class="calendar-table">
+          <tr class="weekdays">
+            <td>Sun</td>
+            <td>Mon</td>
+            <td>Tue</td>
+            <td>Wed</td>
+            <td>Thu</td>
+            <td>Fri</td>
+            <td>Sat</td>
+          </tr>
+          <tr *ngFor="let week of weeks">
+            <td *ngFor="let day of week" (click)="selectDate(day)"
+              [class.selected-date]="selectedDate && day && selectedDate.getTime() === day.date.getTime()">
+
+              <div *ngIf="day">
+                {{ day.date | date: 'd' }}
+              </div>
+
+              <table class="table table-bordered" *ngIf="day">
+                <thead>
+                  <tr>
+                    <th colspan="4">DAYS</th>
+                  </tr>
+                  <tr>
+                    <th>45</th>
+                    <th>90</th>
+                    <th>180</th>
+                    <th>360</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of day?.slots">
+                    <th *ngIf="item.days45>0" style="color: #196dc6; font-size: 1rem;">{{ item.days45 }}</th>
+                    <th *ngIf="item.days90>0" style="color: #196dc6; font-size: 1rem;">{{ item.days90 }}</th>
+                    <th *ngIf="item.days180>0" style="color: #196dc6; font-size: 1rem;">{{ item.days180 }}</th>
+                    <th *ngIf="item.days360>0" style="color: #196dc6; font-size: 1rem;">{{ item.days360 }}</th>
+
+                    <th *ngIf="item.days45<=0" style="color: #c61919; font-size: 1rem;">{{ item.days45 }}</th>
+                    <th *ngIf="item.days90<=0" style="color: #c61919; font-size: 1rem;">{{ item.days90 }}</th>
+                    <th *ngIf="item.days180<=0" style="color: #c61919; font-size: 1rem;">{{ item.days180 }}</th>
+                    <th *ngIf="item.days360<=0" style="color: #c61919; font-size: 1rem;">{{ item.days360 }}</th>
+
+                  </tr>
+
+                </tbody>
+              </table>
+              <!-- <div class="fare">Count {{ day?.investment_Members?.length>0 ? day?.investment_Members?.length :0 }} </div> -->
+              <!--
+              <div [ngClass]="day?.investment_Members?.length>0 ? 'fare' : 'no_fare' " *ngIf="day?.investment_Members?.length">Count {{ day.slots>0                ?day.slots :0 }} </div> -->
+            </td>
+          </tr>
+        </table>
+
+        <div class="clear-today-container">
+          <span (click)="clearSelection()">Clear</span>
+          <span (click)="selectToday()">Today</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
