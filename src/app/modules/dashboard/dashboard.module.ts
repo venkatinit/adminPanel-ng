@@ -27,7 +27,7 @@ import { MakeRenewalComponent } from './make-renewal/make-renewal.component';
 import { AddSubAdminsComponent } from './add-sub-admins/add-sub-admins.component';
 import { ListSubAdminsComponent } from './list-sub-admins/list-sub-admins.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
-import { DateCalendarComponent } from './date-calendar/date-calendar.component';
+import { DateCalenderComponent } from './date-calender/date-calender.component';
 import { SlotsCalenderComponent } from './slots-calender/slots-calender.component';
 
 @NgModule({
@@ -52,7 +52,7 @@ import { SlotsCalenderComponent } from './slots-calender/slots-calender.componen
     AddSubAdminsComponent,
     ListSubAdminsComponent,
     DatePickerComponent,
-    DateCalendarComponent,
+    DateCalenderComponent,
     SlotsCalenderComponent,
   ],
   imports: [

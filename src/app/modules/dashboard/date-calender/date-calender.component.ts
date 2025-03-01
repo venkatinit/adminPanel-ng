@@ -1,4 +1,3 @@
-
 import { Component, HostListener, Input, OnChanges, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { format } from 'date-fns';
@@ -6,11 +5,11 @@ import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/api.client';
 
 @Component({
-  selector: 'app-date-calendar',
-  templateUrl: './date-calendar.component.html',
-  styleUrls: ['./date-calendar.component.css']
+  selector: 'app-date-calender',
+  templateUrl: './date-calender.component.html',
+  styleUrls: ['./date-calender.component.scss']
 })
-export class DateCalendarComponent implements OnInit, OnChanges {
+export class DateCalenderComponent implements OnInit, OnChanges {
   @Input() investmentId!: number; // Accept `investmentId` from parent
   @Input() noOfSlotsPerDay!: number; // Accept `no of slots from parent` from parent
 
