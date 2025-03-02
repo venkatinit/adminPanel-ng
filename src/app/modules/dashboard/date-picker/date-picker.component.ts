@@ -69,9 +69,9 @@ export class DatePickerComponent {
             title: 'Balance',
             investmentId: this.mergedData[0]?.investmentId || 0,  // Fallback to 0 if the first row is undefined
             days45: (this.mergedData[0]?.days45 || 0) - (this.mergedData[1]?.days45 || 0),
-            days90: (this.mergedData[0]?.days90 || 0) - (this.mergedData[1]?.days90 || 0),
+            days135: (this.mergedData[0]?.days135 || 0) - (this.mergedData[1]?.days135 || 0),
             days180: (this.mergedData[0]?.days180 || 0) - (this.mergedData[1]?.days180 || 0),
-            days360: (this.mergedData[0]?.days360 || 0) - (this.mergedData[1]?.days360 || 0)
+            days270: (this.mergedData[0]?.days270 || 0) - (this.mergedData[1]?.days270 || 0)
           }
         ];
       }
@@ -102,16 +102,16 @@ export class DatePickerComponent {
       for (let day = 1; day <= lastDay.getDate(); day++) {
 
         var days45 = Math.round((data['days45'] / 30))
-        var days90 = Math.round((data['days90'] / 30))
+        var days90 = Math.round((data['days135'] / 30))
         var days180 = Math.round((data['days180'] / 30))
-        var days360 = Math.round((data['days360'] / 30))
+        var days360 = Math.round((data['days270'] / 30))
         var finalJson = {};
         var newData = this.slots[i].investment_Members[0];
         if (newData) {
           var days_45 = (Number(days45 ?? 0) - Number(newData['days45'] ?? 0))
-          var days_135 = (Number(days90 ?? 0) - Number(newData['days90'] ?? 0))
+          var days_135 = (Number(days90 ?? 0) - Number(newData['days135'] ?? 0))
           var days_180 = (Number(days180 ?? 0) - Number(newData['days180'] ?? 0))
-          var days_270 = (Number(days360 ?? 0) - Number(newData['days360'] ?? 0))
+          var days_270 = (Number(days360 ?? 0) - Number(newData['days270'] ?? 0))
 
         } else {
           console.log("No data found" + i);
