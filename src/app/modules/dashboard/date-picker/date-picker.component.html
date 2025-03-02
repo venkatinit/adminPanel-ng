@@ -85,11 +85,7 @@
                     <td [ngStyle]="{ 'color': day?.slots.days_135 <= 0 ? 'red' : 'green', 'font-size': '1rem' }">{{ day?.slots.days_135 }}</td>
                     <td [ngStyle]="{ 'color': day?.slots.days_180 <=0 ? 'red' : 'green', 'font-size': '1rem' }">{{ day?.slots.days_180 }}</td>
                     <td [ngStyle]="{ 'color': day?.slots.days_270 <=0 ? 'red' : 'green', 'font-size': '1rem' }">{{ day?.slots.days_270 }}</td>
-                    <!--
-                    <td *ngIf="day?.slots.days_45 <= 0" style="color: #c61919; font-size: 1rem;">{{ day?.slots.days_45 }}</td>
-                    <td *ngIf="day?.slots.days_135 <= 0" style="color: #c61919; font-size: 1rem;">{{ day?.slots.days_135 }}</td>
-                    <td *ngIf="day?.slots.days_180 <= 0" style="color: #c61919; font-size: 1rem;">{{ day?.slots.days_180 }}</td>
-                    <td *ngIf="day?.slots.days_270 <= 0" style="color: #c61919; font-size: 1rem;">{{ day?.slots.days_270 }}</td> -->
+
                   </tr>
                 </tbody>
               </table>

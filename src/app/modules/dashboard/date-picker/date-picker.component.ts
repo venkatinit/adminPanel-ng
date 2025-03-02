@@ -113,7 +113,6 @@ export class DatePickerComponent {
           var days_180 = (Number(days180 ?? 0) - Number(newData['days180'] ?? 0))
           var days_270 = (Number(days360 ?? 0) - Number(newData['days360'] ?? 0))
 
-          //finalJson = { 'days_45': days_45, 'days_135': days_135, 'days_180': days_180, 'days_270': days_270 }
         } else {
           console.log("No data found" + i);
         }
